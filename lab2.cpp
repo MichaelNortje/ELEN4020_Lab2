@@ -1,13 +1,25 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include <ctime>
 #include "omp.h"
+
 
 using namespace std;
 
-// shared_ptr<vector<shared_ptr<vector<int>>>> generate2d(int N){
-    
-// }
+shared_ptr<vector<shared_ptr<vector<int>>>> generate2d(int N){
+    srand(time(NULL));
+    shared_ptr<vector<shared_ptr<vector<int>>>> A = make_shared<vector<shared_ptr<vector<int>>>>();
+    for (int i = 0; i < N; i++){
+        vector<int> row;
+        for (int j = 0; j < N; j++){
+            row.push_back(rand() % N);
+        }
+        auto row_ptr = make_shared<vector<int>> (row);
+        A->push_back(row_ptr);
+    }
+    return A;
+}
 
 void print2d(shared_ptr<vector<shared_ptr<vector<int>>>> A, int N){
     for (auto i = 0; i < N; i++){
@@ -31,28 +43,14 @@ void BasicAlgorithm(shared_ptr<vector<shared_ptr<vector<int>>>> A, int N){
 }
 
 int main(){
-    shared_ptr< std::vector< shared_ptr< std::vector<int> > > > A = make_shared<vector<shared_ptr<vector<int>>>>();
-    vector<int> row1 = {1,2,3,4};
-    vector<int> row2 = {5,6,7,8};
-    vector<int> row3 = {9,10,11,12};
-    vector<int> row4 = {13,14,15,16};
-
-    auto row1_ptr = make_shared<vector<int>> (row1);
-    auto row2_ptr = make_shared<vector<int>> (row2);
-    auto row3_ptr = make_shared<vector<int>> (row3);
-    auto row4_ptr = make_shared<vector<int>> (row4);
-
-    A->push_back(row1_ptr);
-    A->push_back(row2_ptr);
-    A->push_back(row3_ptr);
-    A->push_back(row4_ptr);
-
-    print2d(A, 4);
-    BasicAlgorithm(A, 4);
-    cout << endl;
-    print2d(A, 4);
-
+    int N = 4;
     
+    shared_ptr<vector<shared_ptr<vector<int>>>> A = generate2d(N);
+
+    print2d(A, N);
+    BasicAlgorithm(A, N);
+    cout << endl;
+    print2d(A, N);
 
     return 0;
 }
