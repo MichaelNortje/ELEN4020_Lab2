@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include <climits>
 #include <chrono>
 #include "omp.h"
 
@@ -15,6 +16,7 @@ shared_ptr<vector<shared_ptr<vector<uint32_t>>>> generate2d(int N){
         vector<uint32_t> row;
         for (int j = 0; j < N; j++){
             row.push_back(rand() % N);
+            // row.push_back(INT_MAX - (rand() % 10)); // Overflow condition
         }
         auto row_ptr = make_shared<vector<uint32_t>> (row);
         A->push_back(row_ptr);
@@ -39,10 +41,17 @@ void print2d(shared_ptr<vector<shared_ptr<vector<uint32_t>>>> A){
 void transposeMatrixSerial(shared_ptr<vector<shared_ptr<vector<uint32_t>>>> A, int N){
     for (auto i = 0; i < N; i++){
         for (auto j = 0; j < i; j++){
-            // In place swap
-            A->at(j)->at(i) += A->at(i)->at(j);
-            A->at(i)->at(j) = A->at(j)->at(i) - A->at(i)->at(j);
-            A->at(j)->at(i) -= A->at(i)->at(j);
+            // overflow check
+            if (A->at(i)->at(j) > (INT_MAX - A->at(j)->at(i))) {
+                auto temp = A->at(i)->at(j);
+                A->at(i)->at(j) = A->at(j)->at(i);
+                A->at(j)->at(i) = temp;
+            } else {
+                // In-place swap
+                A->at(j)->at(i) += A->at(i)->at(j);
+                A->at(i)->at(j) = A->at(j)->at(i) - A->at(i)->at(j);
+                A->at(j)->at(i) -= A->at(i)->at(j);
+            }
         }
     }
 }
@@ -53,10 +62,17 @@ void transposeMatrixSimpleOpenMP(shared_ptr<vector<shared_ptr<vector<uint32_t>>>
     for (auto i = 0; i < N; i++){
         #pragma omp parallel for
         for (auto j = 0; j < i; j++){
-            // In place swap
-            A->at(j)->at(i) += A->at(i)->at(j);
-            A->at(i)->at(j) = A->at(j)->at(i) - A->at(i)->at(j);
-            A->at(j)->at(i) -= A->at(i)->at(j);
+            // overflow check
+            if (A->at(i)->at(j) > (INT_MAX - A->at(j)->at(i))) {
+                auto temp = A->at(i)->at(j);
+                A->at(i)->at(j) = A->at(j)->at(i);
+                A->at(j)->at(i) = temp;
+            } else {
+                // In-place swap
+                A->at(j)->at(i) += A->at(i)->at(j);
+                A->at(i)->at(j) = A->at(j)->at(i) - A->at(i)->at(j);
+                A->at(j)->at(i) -= A->at(i)->at(j);
+            }
         }
     }
 }
