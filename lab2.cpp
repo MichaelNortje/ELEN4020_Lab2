@@ -8,22 +8,22 @@ using namespace std;
 using namespace std::chrono;
 
 /// \brief Generates an NxN matrix with random int values between 0 and N
-shared_ptr<vector<shared_ptr<vector<int>>>> generate2d(int N){
+shared_ptr<vector<shared_ptr<vector<uint32_t>>>> generate2d(int N){
     srand(time(NULL));
-    shared_ptr<vector<shared_ptr<vector<int>>>> A = make_shared<vector<shared_ptr<vector<int>>>>();
+    shared_ptr<vector<shared_ptr<vector<uint32_t>>>> A = make_shared<vector<shared_ptr<vector<uint32_t>>>>();
     for (int i = 0; i < N; i++){
-        vector<int> row;
+        vector<uint32_t> row;
         for (int j = 0; j < N; j++){
             row.push_back(rand() % N);
         }
-        auto row_ptr = make_shared<vector<int>> (row);
+        auto row_ptr = make_shared<vector<uint32_t>> (row);
         A->push_back(row_ptr);
     }
     return A;
 }
 
 /// \brief Prints an NxM matrix
-void print2d(shared_ptr<vector<shared_ptr<vector<int>>>> A){
+void print2d(shared_ptr<vector<shared_ptr<vector<uint32_t>>>> A){
     const auto N = A->size();
     const auto M = A->at(0)->size();
     cout << N << "x" << "M" << endl;
@@ -36,7 +36,7 @@ void print2d(shared_ptr<vector<shared_ptr<vector<int>>>> A){
 }
 
 /// \brief Transposes a matrix, using serial algorithm
-void transposeMatrixSerial(shared_ptr<vector<shared_ptr<vector<int>>>> A, int N){
+void transposeMatrixSerial(shared_ptr<vector<shared_ptr<vector<uint32_t>>>> A, int N){
     for (auto i = 0; i < N; i++){
         for (auto j = 0; j < i; j++){
             // In place swap
@@ -48,7 +48,7 @@ void transposeMatrixSerial(shared_ptr<vector<shared_ptr<vector<int>>>> A, int N)
 }
 
 /// \brief Transposes a matrix, using OpenMP Naive threaded algorithm
-void transposeMatrixSimpleOpenMP(shared_ptr<vector<shared_ptr<vector<int>>>> A, int N){
+void transposeMatrixSimpleOpenMP(shared_ptr<vector<shared_ptr<vector<uint32_t>>>> A, int N){
     #pragma omp parallel for
     for (auto i = 0; i < N; i++){
         #pragma omp parallel for
@@ -70,7 +70,7 @@ int main(){
 
     for (auto& N : sizes)
     {
-        shared_ptr<vector<shared_ptr<vector<int>>>> A = generate2d(N);
+        shared_ptr<vector<shared_ptr<vector<uint32_t>>>> A = generate2d(N);
         // print2d(A);
 
         steady_clock::time_point t1 = steady_clock::now();
@@ -84,7 +84,6 @@ int main(){
         t2 = steady_clock::now();
         timer_simple_OpenMP.push_back(duration_cast<duration<double>>(t2 - t1));
         // print2d(A);
-
     }
 
     // Output
