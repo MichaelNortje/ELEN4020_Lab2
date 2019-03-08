@@ -1,4 +1,7 @@
 #include <iostream>
+#include <iomanip>
+#include <stdio.h>
+#include <fstream>
 #include <vector>
 #include <memory>
 #include <climits>
@@ -10,7 +13,7 @@ using namespace std::chrono;
 
 /// \brief Generates an NxN matrix with random int values between 0 and N
 shared_ptr<vector<shared_ptr<vector<uint32_t>>>> generate2d(int N){
-    srand(time(NULL));
+    srand (static_cast<unsigned int>(time(NULL)));
     shared_ptr<vector<shared_ptr<vector<uint32_t>>>> A = make_shared<vector<shared_ptr<vector<uint32_t>>>>();
     for (int i = 0; i < N; i++){
         vector<uint32_t> row;
@@ -41,17 +44,7 @@ void print2d(shared_ptr<vector<shared_ptr<vector<uint32_t>>>> A){
 void transposeMatrixSerial(shared_ptr<vector<shared_ptr<vector<uint32_t>>>> A, int N){
     for (auto i = 0; i < N; i++){
         for (auto j = 0; j < i; j++){
-            // overflow check
-            if (A->at(i)->at(j) > (INT_MAX - A->at(j)->at(i))) {
-                auto temp = A->at(i)->at(j);
-                A->at(i)->at(j) = A->at(j)->at(i);
-                A->at(j)->at(i) = temp;
-            } else {
-                // In-place swap
-                A->at(j)->at(i) += A->at(i)->at(j);
-                A->at(i)->at(j) = A->at(j)->at(i) - A->at(i)->at(j);
-                A->at(j)->at(i) -= A->at(i)->at(j);
-            }
+            swap(A->at(j)->at(i), A->at(i)->at(j)); // Why reinvent the wheel?
         }
     }
 }
@@ -62,27 +55,38 @@ void transposeMatrixSimpleOpenMP(shared_ptr<vector<shared_ptr<vector<uint32_t>>>
     for (auto i = 0; i < N; i++){
         #pragma omp parallel for
         for (auto j = 0; j < i; j++){
-            // overflow check
-            if (A->at(i)->at(j) > (INT_MAX - A->at(j)->at(i))) {
-                auto temp = A->at(i)->at(j);
-                A->at(i)->at(j) = A->at(j)->at(i);
-                A->at(j)->at(i) = temp;
-            } else {
-                // In-place swap
-                A->at(j)->at(i) += A->at(i)->at(j);
-                A->at(i)->at(j) = A->at(j)->at(i) - A->at(i)->at(j);
-                A->at(j)->at(i) -= A->at(i)->at(j);
-            }
+            swap(A->at(j)->at(i), A->at(i)->at(j));
         }
     }
 }
 
+////////////////////////////
+//		Main
+////////////////////////////
 int main(){
-    
-    vector<int> sizes = {128, 1024, 2048, 4096};
+    // overall system time elapsed
+	clock_t start_time = clock();
+
+    /* Output setup */
+	string fileOutName = "timings.txt";
+	ofstream output_file(fileOutName, ios::out | ios::trunc);
+	if (!output_file.is_open()) { cerr << "Unable to open file:" << fileOutName << endl; return -1;}
+
+    /* Output column titles */
+	auto width = 20;
+	output_file << setw(width) << left << "#N0=N1";
+	output_file << setw(width) << left << "Serial";
+	output_file << setw(width) << left << "OpenMP:Naive";
+    output_file << setw(width) << left << "OpenMP:Diagonal";
+	output_file << setw(width) << left << "OpenMP:Blocked";
+    output_file << setw(width) << left << "PThreads:Diagonal";
+	output_file << setw(width) << left << "PThreads:Blocked";
+
+
+	output_file << endl;
+
+    vector<int> sizes = {128, 1024, 2048, 4096, 8192};
     // vector<int> sizes = {2, 4, 6, 8};
-    vector<duration<double>> timer_serial;
-    vector<duration<double>> timer_simple_OpenMP;
 
     for (auto& N : sizes)
     {
@@ -92,32 +96,24 @@ int main(){
         steady_clock::time_point t1 = steady_clock::now();
         transposeMatrixSerial(A, N);
         steady_clock::time_point t2 = steady_clock::now();
-        timer_serial.push_back(duration_cast<duration<double>>(t2 - t1));
+        auto timer_serial = duration_cast<duration<double>>(t2 - t1);
         // print2d(A);
 
         t1 = steady_clock::now();
         transposeMatrixSimpleOpenMP(A, N);
         t2 = steady_clock::now();
-        timer_simple_OpenMP.push_back(duration_cast<duration<double>>(t2 - t1));
+        auto timer_simple_OpenMP = duration_cast<duration<double>>(t2 - t1);
         // print2d(A);
+
+        /* Output Time */
+		output_file << setw(width) << left << N;
+		output_file << setw(width) << left << setprecision(7) << fixed << timer_serial.count();
+		output_file << setw(width) << left << setprecision(7) << fixed << timer_simple_OpenMP.count();
+		output_file << endl;
     }
 
-    // Output
-    cout << endl << "Serial (Naive): \n";
-    auto i = 0;
-    for (auto& N : sizes){
-        cout << N << "x" << N << ": " << timer_serial.at(i).count() << " seconds";
-        cout << endl;
-        i++;
-    }
+	output_file.close();
 
-    cout << endl << "OpenMP (Naive): \n";
-    i = 0;
-    for (auto& N : sizes){
-        cout << N << "x" << N << ": " << timer_simple_OpenMP.at(i).count() << " seconds";
-        cout << endl;
-        i++;
-    }
-
-    return 0;
+	cout << "Executable Runtime: " << double( clock() - start_time) / (double) CLOCKS_PER_SEC << " seconds" << endl;
+	cout << "Processing complete: created timings.txt" << endl;
 }
