@@ -64,30 +64,47 @@ void transposeMatrixSimpleOpenMP(shared_ptr<vector<shared_ptr<vector<uint32_t>>>
     }
 }
 
-/// \brief Transposes a matrix, using OpenMP threaded algorithm, swapping row and columns
+/// \brief Transposes a matrix, using OpenMP threaded algorithm which swaps row/columns along diagonal
 void transposeMatrixDiagonalOpenMP(shared_ptr<vector<shared_ptr<vector<uint32_t>>>> A, int N){
     int i, j, tid;
     int num_threads = omp_get_num_threads();
 
     #pragma omp parallel shared(A, N, num_threads) private(tid, i, j)
     {
-        // if (num_threads > N) {
-        //     omp_set_num_threads(N);
-        //     num_threads = N;  
-        // }
+        /* An Unneccesary optimization:
+        if (num_threads > N) {
+            omp_set_num_threads(N);
+            num_threads = N;  
+        }
+        */
+
         tid = omp_get_thread_num();
-        auto start_thread_num = tid/num_threads;
-        // printf("Number of threads: %d \n", num_threads);
-        // printf("TiD: %2d, from %d to %d \n", tid, start_thread_num, N);
-        for (i = start_thread_num; i < N; i++){
-                for(j = start_thread_num; i < N; i++) {
-                    if (i!=j) {
-                            // printf("Thread %d did (%d,%d)->(%d,%d) \n%", tid, j, i, i, j);
+        auto start_thread_num = tid/num_threads;            // the row/column start value in the for loops
+
+        for (i = start_thread_num; i < N; i++){             // For row entry from the diagonal out
+                for(j = start_thread_num; i < N; i++) {     // iterate through each column entry
+                    if (i!=j) {                             // skip equal entries
+                            /* printf("Thread %d did (%d,%d)->(%d,%d) \n%", tid, j, i, i, j); */
                             swap(A->at(j)->at(i), A->at(i)->at(j));
                         }
                 }
         }
-    };
+    }
+}
+
+/// \brief Transposes a matrix, using OpenMP threaded version of Eklundh's algorithm
+void transposeMatrixBlockOpenMP(shared_ptr<vector<shared_ptr<vector<uint32_t>>>> A, int N){
+
+}
+
+/// \brief Transposes a matrix, using PThreaded algorithm which swaps row/columns along diagonal
+void transposeMatrixDiagonalPThread(shared_ptr<vector<shared_ptr<vector<uint32_t>>>> A, int N){
+
+}
+
+/// \brief Transposes a matrix, using PThreaded version of Eklundh's algorithm
+void transposeMatrixBlockPThread(shared_ptr<vector<shared_ptr<vector<uint32_t>>>> A, int N){
+
 }
 
 ////////////////////////////
@@ -108,10 +125,9 @@ int main(){
 	output_file << setw(width) << left << "Serial";
 	output_file << setw(width) << left << "OpenMP:Naive";
     output_file << setw(width) << left << "OpenMP:Diagonal";
-	output_file << setw(width) << left << "OpenMP:Block-Oriented";
+	output_file << setw(width) << left << "OpenMP:Block";
     output_file << setw(width) << left << "PThreads:Diagonal";
-	output_file << setw(width) << left << "PThreads:Block-Oriented";
-
+	output_file << setw(width) << left << "PThreads:Block";
 	output_file << endl;
     
     auto print = false;
@@ -143,11 +159,33 @@ int main(){
         auto timer_diagonal_OpenMP = duration_cast<duration<double>>(t2 - t1);
         if (print) print2d(A);
 
+        t1 = steady_clock::now();
+        transposeMatrixBlockOpenMP(A, N);
+        t2 = steady_clock::now();
+        auto timer_block_OpenMP = duration_cast<duration<double>>(t2 - t1);
+        if (print) print2d(A);
+
+        t1 = steady_clock::now();
+        transposeMatrixDiagonalPThread(A, N);
+        t2 = steady_clock::now();
+        auto timer_diagonal_PThread = duration_cast<duration<double>>(t2 - t1);
+        if (print) print2d(A);
+
+        t1 = steady_clock::now();
+        transposeMatrixBlockPThread(A, N);
+        t2 = steady_clock::now();
+        auto timer_block_PThread = duration_cast<duration<double>>(t2 - t1);
+        if (print) print2d(A);
+
+
         /* Output Time */
 		output_file << setw(width) << left << N;
 		output_file << setw(width) << left << setprecision(7) << fixed << timer_serial.count();
 		output_file << setw(width) << left << setprecision(7) << fixed << timer_simple_OpenMP.count();
         output_file << setw(width) << left << setprecision(7) << fixed << timer_diagonal_OpenMP.count();
+        output_file << setw(width) << left << setprecision(7) << fixed << "N/A";//timer_block_OpenMP.count();
+        output_file << setw(width) << left << setprecision(7) << fixed << "N/A";//timer_diagonal_PThread.count();
+        output_file << setw(width) << left << setprecision(7) << fixed << "N/A";//timer_block_PThread.count();
         output_file << endl;
     }
 
