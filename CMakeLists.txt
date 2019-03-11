@@ -8,7 +8,10 @@ set(CMAKE_BUILD_TYPE "Debug")
 # set (CMAKE_CXX_FLAGS "-v")
 set (CMAKE_CXX_FLAGS "-Wno-unused-command-line-argument")
 
-set(SOURCE lab2.cpp)
+set(SOURCE  src/utilities.cpp
+            src/transpose.cpp
+            src/lab2.cpp)
+
 set(EXECUTABLE ${PROJECT_NAME})
 
 find_package(OpenMP REQUIRED)
