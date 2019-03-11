@@ -1,4 +1,5 @@
 #include <chrono>
+#include <assert.h>
 #include "utilities.h"
 #include "transpose.h"
 
@@ -37,43 +38,50 @@ int main(){
     for (auto& N : sizes)
     {
         shared_ptr<vector<row>> A = generate2d(N);
-        if (print) print2d(A);
+        string validationFile = "data.txt";
+        writeMatrixToFile(validationFile, A);
 
         steady_clock::time_point t1 = steady_clock::now();
         transposeMatrixSerial(A, N);
         steady_clock::time_point t2 = steady_clock::now();
         auto timer_serial = duration_cast<duration<double>>(t2 - t1);
-        if (print) print2d(A);
+        transposeMatrixSerial(A, N);
+        assert(matricesAreEqual(A, readMatrixfromFile(validationFile)));
 
         t1 = steady_clock::now();
         transposeMatrixSimpleOpenMP(A, N);
         t2 = steady_clock::now();
         auto timer_simple_OpenMP = duration_cast<duration<double>>(t2 - t1);
-        if (print) print2d(A);
+        transposeMatrixSerial(A, N);
+        assert(matricesAreEqual(A, readMatrixfromFile(validationFile)));
 
         t1 = steady_clock::now();
         transposeMatrixDiagonalOpenMP(A, N);
         t2 = steady_clock::now();
         auto timer_diagonal_OpenMP = duration_cast<duration<double>>(t2 - t1);
-        if (print) print2d(A);
+        transposeMatrixSerial(A, N);
+        assert(matricesAreEqual(A, readMatrixfromFile(validationFile)));
 
         t1 = steady_clock::now();
         transposeMatrixBlockOpenMP(A, N);
         t2 = steady_clock::now();
         auto timer_block_OpenMP = duration_cast<duration<double>>(t2 - t1);
-        if (print) print2d(A);
+        // transposeMatrixSerial(A, N);
+        // assert(matricesAreEqual(A, readMatrixfromFile(validationFile)));
 
         t1 = steady_clock::now();
         transposeMatrixDiagonalPThread(A, N);
         t2 = steady_clock::now();
         auto timer_diagonal_PThread = duration_cast<duration<double>>(t2 - t1);
-        if (print) print2d(A);
+        // transposeMatrixSerial(A, N);
+        // assert(matricesAreEqual(A, readMatrixfromFile(validationFile)));
 
         t1 = steady_clock::now();
         transposeMatrixBlockPThread(A, N);
         t2 = steady_clock::now();
         auto timer_block_PThread = duration_cast<duration<double>>(t2 - t1);
-        if (print) print2d(A);
+        // transposeMatrixSerial(A, N);
+        // assert(matricesAreEqual(A, readMatrixfromFile(validationFile)));
 
 
         /* Output Time */
