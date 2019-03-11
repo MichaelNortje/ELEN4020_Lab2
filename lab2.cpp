@@ -46,6 +46,9 @@ void transposeMatrixSerial(shared_ptr<vector<shared_ptr<vector<uint32_t>>>> A, i
         for (auto j = 0; j < i; j++){
             if (i!=j) {
                 swap(A->at(j)->at(i), A->at(i)->at(j)); // Don't reinvent the wheel
+                // swap() is in in move.h 
+                // Uses temp variable to peform swap
+                // Highly optimized in modern compilers
             }
         }
     }
@@ -71,7 +74,7 @@ void transposeMatrixDiagonalOpenMP(shared_ptr<vector<shared_ptr<vector<uint32_t>
 
     #pragma omp parallel shared(A, N, num_threads) private(tid, i, j)
     {
-        /* An Unneccesary optimization:
+        /* An Unneccesary optimization?:
         if (num_threads > N) {
             omp_set_num_threads(N);
             num_threads = N;  
@@ -79,13 +82,13 @@ void transposeMatrixDiagonalOpenMP(shared_ptr<vector<shared_ptr<vector<uint32_t>
         */
 
         tid = omp_get_thread_num();
-        auto start_thread_num = tid/num_threads;            // the row/column start value in the for loops
+        auto start_thread_num = tid/num_threads;                // the row/column start value in the for loops
 
-        for (i = start_thread_num; i < N; i++){             // For row entry from the diagonal out
-                for(j = start_thread_num; i < N; i++) {     // iterate through each column entry
-                    if (i!=j) {                             // skip equal entries
-                            /* printf("Thread %d did (%d,%d)->(%d,%d) \n%", tid, j, i, i, j); */
+        for (i = start_thread_num; i < N; i++){                 // For row entry from the diagonal out
+                for(j = start_thread_num; i < N; i++) {         // iterate through each column entry
+                    if (i!=j) {                                 // skip equal entries
                             swap(A->at(j)->at(i), A->at(i)->at(j));
+                            /* printf("Thread %d did (%d,%d)->(%d,%d) \n%", tid, j, i, i, j); */
                         }
                 }
         }
@@ -107,9 +110,9 @@ void transposeMatrixBlockPThread(shared_ptr<vector<shared_ptr<vector<uint32_t>>>
 
 }
 
-////////////////////////////
-//		Main
-////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//		                                           Main
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int main(){
     // overall system time elapsed
 	clock_t start_time = clock();
