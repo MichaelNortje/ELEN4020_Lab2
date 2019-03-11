@@ -28,6 +28,7 @@ void print2d(matrix A){
     }
 }
 
+/// \brief Write an NxM matrix to file
 void writeMatrixToFile(string fileName, matrix A){
     ofstream outputFile(fileName, ios::out);
     if (!outputFile.is_open()) {
@@ -48,6 +49,7 @@ void writeMatrixToFile(string fileName, matrix A){
     outputFile.close();
 }
 
+/// \brief Read an NxM matrix from file
 matrix readMatrixfromFile(string fileName){
     ifstream inputFile(fileName, ios::in);
     if (!inputFile.is_open()) {
@@ -74,6 +76,7 @@ matrix readMatrixfromFile(string fileName){
     return A;
 }
 
+/// \brief Compare two matrices
 bool matricesAreEqual(matrix A, matrix B){    
     const auto N = A->size();
     const auto M = A->at(0)->size();
@@ -89,7 +92,7 @@ bool matricesAreEqual(matrix A, matrix B){
         for (auto j = 0; j < M; j++){
             if (A->at(i)->at(j) != B->at(i)->at(j)) {
                 cout << "Error: Matrix sizes do not match at (" << i << "," << j << ")" << endl;
-                return -1;
+                return 0;
             }
         }
     }
