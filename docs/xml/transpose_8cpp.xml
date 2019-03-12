@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="transpose_8cpp" kind="file" language="C++">
+    <compoundname>transpose.cpp</compoundname>
+    <includes refid="transpose_8h" local="yes">transpose.h</includes>
+    <incdepgraph>
+      <node id="24">
+        <label>iomanip</label>
+      </node>
+      <node id="22">
+        <label>utilities.h</label>
+        <link refid="utilities_8h_source"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>omp.h</label>
+      </node>
+      <node id="26">
+        <label>fstream</label>
+      </node>
+      <node id="27">
+        <label>vector</label>
+      </node>
+      <node id="23">
+        <label>iostream</label>
+      </node>
+      <node id="28">
+        <label>Matrix.h</label>
+        <link refid="_matrix_8h_source"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>src/transpose.cpp</label>
+        <link refid="transpose_8cpp"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>transpose.h</label>
+        <link refid="transpose_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>stdio.h</label>
+      </node>
+      <node id="29">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="transpose_8cpp_1a8389ce2576524c4717d73986aa3a75db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void transposeMatrixSerial</definition>
+        <argsstring>(Matrix A, int N)</argsstring>
+        <name>transposeMatrixSerial</name>
+        <param>
+          <type><ref refid="class_matrix" kindref="compound">Matrix</ref></type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+<para>Transposes a matrix, using serial algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>A</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A single dimension of the square matrix to compaet </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>A</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>B single dimension of the square matrix </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/transpose.cpp" line="4" column="1" bodyfile="src/transpose.cpp" bodystart="4" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="transpose_8cpp_1ae8660fb96fc2e988798dc6fa6bf109d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void transposeMatrixSimpleOpenMP</definition>
+        <argsstring>(Matrix A, int N)</argsstring>
+        <name>transposeMatrixSimpleOpenMP</name>
+        <param>
+          <type><ref refid="class_matrix" kindref="compound">Matrix</ref></type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+<para>Transposes a matrix, using OpenMP Naive threaded algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/transpose.cpp" line="15" column="1" bodyfile="src/transpose.cpp" bodystart="15" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="transpose_8cpp_1aed75d353dcb0c2b71b41a38d748bf1e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void transposeMatrixDiagonalOpenMP</definition>
+        <argsstring>(Matrix A, int N)</argsstring>
+        <name>transposeMatrixDiagonalOpenMP</name>
+        <param>
+          <type><ref refid="class_matrix" kindref="compound">Matrix</ref></type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+<para>Transposes a matrix, using OpenMP threaded algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Transposes a matrix, using OpenMP threaded algorithm which swaps row/columns along diagonal. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/transpose.cpp" line="29" column="1" bodyfile="src/transpose.cpp" bodystart="29" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="transpose_8cpp_1a150aa08b40e0a366ba5b1f8e9a0068a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void transposeMatrixBlockOpenMP</definition>
+        <argsstring>(Matrix A, int N)</argsstring>
+        <name>transposeMatrixBlockOpenMP</name>
+        <param>
+          <type><ref refid="class_matrix" kindref="compound">Matrix</ref></type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+<para>Transposes a matrix, using OpenMP threaded version of Eklundh&apos;s algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/transpose.cpp" line="39" column="1" bodyfile="src/transpose.cpp" bodystart="39" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="transpose_8cpp_1a2a27d2857160f4fa83323e0707fa22f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void transposeMatrixDiagonalPThread</definition>
+        <argsstring>(Matrix A, int N)</argsstring>
+        <name>transposeMatrixDiagonalPThread</name>
+        <param>
+          <type><ref refid="class_matrix" kindref="compound">Matrix</ref></type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+<para>Transposes a matrix, using PThreaded algorithm which swaps row/columns along diagonal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/transpose.cpp" line="44" column="1" bodyfile="src/transpose.cpp" bodystart="44" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="transpose_8cpp_1a6cc7281b28b72ec052efb82e407a4cec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void transposeMatrixBlockPThread</definition>
+        <argsstring>(Matrix A, int N)</argsstring>
+        <name>transposeMatrixBlockPThread</name>
+        <param>
+          <type><ref refid="class_matrix" kindref="compound">Matrix</ref></type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+<para>Transposes a matrix, using PThreaded version of Eklundh&apos;s algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/transpose.cpp" line="49" column="1" bodyfile="src/transpose.cpp" bodystart="49" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/transpose.cpp"/>
+  </compounddef>
+</doxygen>
