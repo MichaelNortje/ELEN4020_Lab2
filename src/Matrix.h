@@ -1,5 +1,6 @@
 #ifndef MATRIX_H
 #define MATRIX_H
+// Code adapted from suggestions at goo.gl/sF1SK4
 
 #include <memory>
 
@@ -7,7 +8,8 @@
 ///
 /// The 2d square matrix is stored as a single contigous array,
 /// with getter and setter methods provided to allow 2d indexing
-class Matrix { 
+class Matrix
+{ 
     uint32_t* array; 
     int width;
 
@@ -23,12 +25,14 @@ public:
     /// \brief at The getter method, with 2d indexing of elements
     /// \param x The row index
     /// \param y The column index
-    int at(int x, int y) {
+    int at(int x, int y)
+    {
         return array[_index(x, y)];
     }
 
     /// \brief size Returns a single dimension of the square matrix
-    int size() {
+    int size()
+    {
         return width;
     }
 
@@ -36,13 +40,15 @@ public:
     /// \param x The row index
     /// \param y The column index
     /// \param val An unsigned 32-bit integer value inserted into the element
-    void set(int x, int y, uint32_t val) {
+    void set(int x, int y, uint32_t val)
+    {
         array[_index(x, y)] = val;
     }
 
     /// \brief randomizeValues Sets each element in the matrix to
     /// a random 32-bit integer between 0 and the 'size' value
-    void randomizeValues() {
+    void randomizeValues()
+    {
         srand (static_cast<unsigned int>(time(NULL)));
         for(size_t i = 0; i < width*width; i++){
             this->array[i] = rand() % width;
@@ -54,7 +60,8 @@ public:
     /// When complete, A[x][y] <=> A[y][x]
     /// \param x The row index
     /// \param y The column index
-    void swap(int x, int y) {
+    void swap(int x, int y)
+    {
         int32_t temp = this->at(x, y);
         this->set(x, y, this->at(y, x));
         this->set(y, x, temp);
@@ -64,7 +71,8 @@ protected:
     /// \brief _index Method of indexing the 1D array as a 2D matrix
     /// \param x The row index
     /// \param y The column index
-    int _index(int x, int y) const {
+    int _index(int x, int y) const
+    {
         return x + width * y; 
     } 
 };
