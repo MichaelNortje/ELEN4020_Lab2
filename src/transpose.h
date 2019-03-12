@@ -5,25 +5,25 @@
 #include "omp.h"
 
 using namespace std;
-using row = shared_ptr<vector<uint32_t>>;
-using matrix = shared_ptr<vector<row>>;
 
 /// \brief Transposes a matrix, using serial algorithm
-void transposeMatrixSerial(matrix A, int N);
+/// \param A A single dimension of the square matrix to compaet
+/// \param A B single dimension of the square matrix
+void transposeMatrixSerial(Matrix A, int N);
 
 /// \brief Transposes a matrix, using OpenMP Naive threaded algorithm
-void transposeMatrixSimpleOpenMP(matrix A, int N);
+void transposeMatrixSimpleOpenMP(Matrix A, int N);
 
 /// \brief Transposes a matrix, using OpenMP threaded algorithm which swaps row/columns along diagonal
-void transposeMatrixDiagonalOpenMP(matrix A, int N);
+void transposeMatrixDiagonalOpenMP(Matrix A, int N);
 
 /// \brief Transposes a matrix, using OpenMP threaded version of Eklundh's algorithm
-void transposeMatrixBlockOpenMP(matrix A, int N);
+void transposeMatrixBlockOpenMP(Matrix A, int N);
 
 /// \brief Transposes a matrix, using PThreaded algorithm which swaps row/columns along diagonal
-void transposeMatrixDiagonalPThread(matrix A, int N);
+void transposeMatrixDiagonalPThread(Matrix A, int N);
 
 /// \brief Transposes a matrix, using PThreaded version of Eklundh's algorithm
-void transposeMatrixBlockPThread(matrix A, int N);
+void transposeMatrixBlockPThread(Matrix A, int N);
 
 #endif

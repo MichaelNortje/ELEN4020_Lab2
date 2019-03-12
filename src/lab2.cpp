@@ -3,23 +3,21 @@
 #include <functional>
 #include "utilities.h"
 #include "transpose.h"
+#include "Matrix.h"
 
 using namespace std;
 using namespace std::chrono;
-
-using row = shared_ptr<vector<uint32_t>>;
-using matrix = shared_ptr<vector<row>>;
 
 int main(){
     // overall system time elapsed
 	clock_t start_time = clock();
 
-    /* Output setup */
+    // Output setup
 	string fileOutName = "timings.txt";
 	ofstream output_file(fileOutName, ios::out | ios::trunc);
 	if (!output_file.is_open()) { cerr << "Unable to open file:" << fileOutName << endl; return -1;}
 
-    /* Output column titles */
+    // Output column titles
 	auto width = 20;
 	output_file << setw(width) << left << "#N0=N1";
 	output_file << setw(width) << left << "Serial";
@@ -30,7 +28,7 @@ int main(){
 	// output_file << setw(width) << left << "PThreads:Block";
 	output_file << endl;
     
-    vector<function<void (matrix, int)>> vector_of_transpose_functions;     // vector of pointers to functions
+    vector<function<void (Matrix, int)>> vector_of_transpose_functions;     // vector of pointers to functions
 
     vector_of_transpose_functions.push_back(transposeMatrixSerial);
     vector_of_transpose_functions.push_back(transposeMatrixSimpleOpenMP);
@@ -38,21 +36,23 @@ int main(){
     // vector_of_transpose_functions.push_back(transposeMatrixBlockOpenMP);
     // vector_of_transpose_functions.push_back(transposeMatrixDiagonalPThread);
     // vector_of_transpose_functions.push_back(transposeMatrixBlockPThread);
+    auto num_of_functions = vector_of_transpose_functions.size();
 
-    vector<int> sizes = {2, 4, 8, 16, 32, 64, 128, 512, 1024, 2048, 4096, 8196};
+    vector<int> sizes = {2, 4, 8, 16, 32, 64, 128, 512, 1024, 2048, 4096, 8196, 16348};
     // vector<int> sizes = {3, 5, 6, 8, 10};
     // vector<int> sizes = {3};
     
-    int i = 0;
     for (auto& N : sizes)
     {
-        matrix A = generate2d(N);
+        Matrix A(N);
+        Matrix B(N);
+
+        A.randomizeValues();
         string validationFile = "data.txt";
         writeMatrixToFile(validationFile, A);
-        matrix B = readMatrixfromFile(validationFile);
+        B = readMatrixfromFile(validationFile);
 
         output_file << setw(width) << left << N;
-        auto num_of_functions = vector_of_transpose_functions.size();
         
         for(auto i = 0; i < num_of_functions; i++) {
             steady_clock::time_point t1 = steady_clock::now();
@@ -70,4 +70,5 @@ int main(){
 
 	cout << "Executable Runtime: " << double( clock() - start_time) / (double) CLOCKS_PER_SEC << " seconds" << endl;
 	cout << "Processing complete: created timings.txt" << endl;
+
 }

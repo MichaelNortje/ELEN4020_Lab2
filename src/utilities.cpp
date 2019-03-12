@@ -1,47 +1,31 @@
 #include "utilities.h"
+#include "Matrix.h"
 
-matrix generate2d(int N){
-    srand (static_cast<unsigned int>(time(NULL)));
-    matrix A = make_shared<vector<row>>();
-    for (int i = 0; i < N; i++){
-        vector<uint32_t> row;
-        for (int j = 0; j < N; j++){
-            row.push_back(rand() % N);
-            // row.push_back(INT_MAX - (rand() % 10)); // Overflow condition
-        }
-        auto row_ptr = make_shared<vector<uint32_t>> (row);
-        A->push_back(row_ptr);
-    }
-    return A;
-}
-
-/// \brief Prints an NxM matrix
-void print2d(matrix A){
-    const auto N = A->size();
-    const auto M = A->at(0)->size();
-    cout << N << "x" << M << endl;
+/// \brief Prints an NxN matrix
+void print2d(Matrix A){
+    const auto N = A.size();
+    cout << N << "x" << N << endl;
     for (auto i = 0; i < N; i++){
-        for (auto j = 0; j < M; j++){
-            cout << A->at(i)->at(j) << "\t";
+        for (auto j = 0; j < N; j++){
+            cout << A.at(i, j) << "\t";
         }
         cout << endl;
     }
 }
 
 /// \brief Write an NxM matrix to file
-void writeMatrixToFile(string fileName, matrix A){
+void writeMatrixToFile(string fileName, Matrix A){
     ofstream outputFile(fileName, ios::out);
     if (!outputFile.is_open()) {
         cout << "Unable to open file:" << fileName << endl;
     }
-    const auto N = A->size();
-    const auto M = A->at(0)->size();
+    const auto N = A.size();
 
-    outputFile << N << "\t" << M << endl;
+    outputFile << N << endl;
 
     for (auto i = 0; i < N; i++){
-            for (auto j = 0; j < M; j++){
-                outputFile << A->at(i)->at(j) << "\t";
+            for (auto j = 0; j < N; j++){
+                outputFile << A.at(i, j) << "\t";
             }
         outputFile << endl;
         }
@@ -50,47 +34,40 @@ void writeMatrixToFile(string fileName, matrix A){
 }
 
 /// \brief Read an NxM matrix from file
-matrix readMatrixfromFile(string fileName){
+Matrix readMatrixfromFile(string fileName){
     ifstream inputFile(fileName, ios::in);
     if (!inputFile.is_open()) {
         cout << "Unable to open file:" << fileName << endl;
     }
     inputFile.seekg(0, ios::beg);
-    
-    matrix A = make_shared<vector<row>>();
-    int N, M;
-    uint32_t val;
 
-    inputFile >> N >> M;
+    int N;
+    uint32_t val;
+    inputFile >> N;
+    Matrix A(N);
 
     for (int i = 0; i < N; i++){
-        vector<uint32_t> row;
-        for (int j = 0; j < M; j++){
+        for (int j = 0; j < N; j++){
             inputFile >> val;
-            row.push_back(val);
+            A.set(i, j, val);
         }
-        auto row_ptr = make_shared<vector<uint32_t>> (row);
-        A->push_back(row_ptr);
     }
-
     return A;
 }
 
 /// \brief Compare two matrices
-bool matricesAreEqual(matrix A, matrix B){    
-    const auto N = A->size();
-    const auto M = A->at(0)->size();
-    const auto NB = B->size();
-    const auto MB = B->at(0)->size();
+bool matricesAreEqual(Matrix A, Matrix B){    
+    const auto N = A.size();
+    const auto NB = B.size();
 
-    if ((N!=NB) || (M!=MB)) {
+    if (N!=NB) {
         cout << "Error: Matrix sizes do not match" << endl;
         return -1;
     }
     
     for (auto i = 0; i < N; i++){
-        for (auto j = 0; j < M; j++){
-            if (A->at(i)->at(j) != B->at(i)->at(j)) {
+        for (auto j = 0; j < N; j++){
+            if (A.at(i, j) != B.at(i, j)) {
                 cout << "Error: Matrix sizes do not match at (" << i << "," << j << ")" << endl;
                 return 0;
             }

@@ -6,25 +6,30 @@
 #include <stdio.h>
 #include <fstream>
 #include <vector>
-#include <memory>
+#include "Matrix.h"
 
 using namespace std;
-using row = shared_ptr<vector<uint32_t>>;
-using matrix = shared_ptr<vector<row>>;
 
 /// \brief Generates an NxN matrix with random int values between 0 and N
-matrix generate2d(int N);
+/// \param N The number of row/columns
+Matrix generate2d(int N);
 
 /// \brief Prints an NxM matrix
-void print2d(shared_ptr<vector<row>> A);
+/// \param x The matrix to print
+void print2d(Matrix A);
 
 /// \brief Caches a matrix to disk
-void writeMatrixToFile(string fileName, matrix A);
+/// \param fileName Path to the cache file to write (replaces contents)
+/// \param x The matrix to cache to disk
+void writeMatrixToFile(string fileName, Matrix A);
 
 /// \brief Reads a matrix into memory from disk
-matrix readMatrixfromFile(string fileName);
+/// \param fileName Path to the cache file to read
+Matrix readMatrixfromFile(string fileName);
 
-/// \brief Compares two matrices to check if all elements are equal
-bool matricesAreEqual(matrix A, matrix B);
+/// \brief Compares two matrices to check if all elements are the same
+/// \param A The first matrix to compare to
+/// \param B The second matrix to compare with
+bool matricesAreEqual(Matrix A, Matrix B);
 
 #endif
