@@ -13,9 +13,10 @@ class Matrix {
 
 public:
     /// \brief Constructor for a Matrix object
-    /// \param width The size of a single dimension. 
+    /// \param N The size of a single dimension
+    /// \param width The size of a single dimension
     /// \param array The array will be [width x width]*32-bits size,
-    /// in a contiguous block of memeory.
+    /// in a contiguous block of memory
     Matrix(int N) : width(N),
                     array(new uint32_t[N * N]) {}
 
