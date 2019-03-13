@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/Matrix.h" line="11" column="1" bodyfile="src/Matrix.h" bodystart="11" bodyend="-1"/>
+        <location file="src/Matrix.h" line="13" column="1" bodyfile="src/Matrix.h" bodystart="13" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="class_matrix_1ad4320bd2dc03fd11887d3ba350c6c8ef" prot="private" static="no" mutable="no">
         <type>int</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/Matrix.h" line="12" column="1" bodyfile="src/Matrix.h" bodystart="12" bodyend="-1"/>
+        <location file="src/Matrix.h" line="14" column="1" bodyfile="src/Matrix.h" bodystart="14" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -74,7 +74,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/Matrix.h" line="20" column="1" bodyfile="src/Matrix.h" bodystart="20" bodyend="21"/>
+        <location file="src/Matrix.h" line="22" column="1" bodyfile="src/Matrix.h" bodystart="22" bodyend="23"/>
       </memberdef>
       <memberdef kind="function" id="class_matrix_1a60c3672f483b116f2aed53d669862619" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/Matrix.h" line="26" column="1" bodyfile="src/Matrix.h" bodystart="26" bodyend="28"/>
+        <location file="src/Matrix.h" line="28" column="1" bodyfile="src/Matrix.h" bodystart="28" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="class_matrix_1a7e960a1c6e8f5aa90dddb18d9394890c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>int</type>
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/Matrix.h" line="31" column="1" bodyfile="src/Matrix.h" bodystart="31" bodyend="33"/>
+        <location file="src/Matrix.h" line="34" column="1" bodyfile="src/Matrix.h" bodystart="34" bodyend="37"/>
       </memberdef>
       <memberdef kind="function" id="class_matrix_1aedf6d7aba0136c6bc37fdab4a4a7d613" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -180,7 +180,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/Matrix.h" line="39" column="1" bodyfile="src/Matrix.h" bodystart="39" bodyend="41"/>
+        <location file="src/Matrix.h" line="43" column="1" bodyfile="src/Matrix.h" bodystart="43" bodyend="46"/>
       </memberdef>
       <memberdef kind="function" id="class_matrix_1a88a20dc499081a96d11ce633b42b51eb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -194,7 +194,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/Matrix.h" line="45" column="1" bodyfile="src/Matrix.h" bodystart="45" bodyend="50"/>
+        <location file="src/Matrix.h" line="50" column="1" bodyfile="src/Matrix.h" bodystart="50" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="class_matrix_1ab841a21fe00fc2dab4a4252d2daa1a28" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -234,7 +234,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/Matrix.h" line="57" column="1" bodyfile="src/Matrix.h" bodystart="57" bodyend="61"/>
+        <location file="src/Matrix.h" line="63" column="1" bodyfile="src/Matrix.h" bodystart="63" bodyend="68"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
@@ -276,7 +276,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/Matrix.h" line="67" column="1" bodyfile="src/Matrix.h" bodystart="67" bodyend="69"/>
+        <location file="src/Matrix.h" line="74" column="1" bodyfile="src/Matrix.h" bodystart="74" bodyend="77"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -285,7 +285,7 @@
     <detaileddescription>
 <para>The 2d square matrix is stored as a single contigous array, with getter and setter methods provided to allow 2d indexing </para>
     </detaileddescription>
-    <location file="src/Matrix.h" line="10" column="1" bodyfile="src/Matrix.h" bodystart="10" bodyend="70"/>
+    <location file="src/Matrix.h" line="12" column="1" bodyfile="src/Matrix.h" bodystart="11" bodyend="78"/>
     <listofallmembers>
       <member refid="class_matrix_1a17c1b7c8f84a3d2c6d0623281a0ff0a3" prot="protected" virt="non-virtual"><scope>Matrix</scope><name>_index</name></member>
       <member refid="class_matrix_1a261923413b8b0dda89f5930190e2ef8d" prot="private" virt="non-virtual"><scope>Matrix</scope><name>array</name></member>

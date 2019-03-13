@@ -24,7 +24,8 @@
     <member refid="transpose_8cpp_1a8389ce2576524c4717d73986aa3a75db" kind="function"><name>transposeMatrixSerial</name></member>
     <member refid="transpose_8cpp_1ae8660fb96fc2e988798dc6fa6bf109d8" kind="function"><name>transposeMatrixSimpleOpenMP</name></member>
     <member refid="transpose_8cpp_1aed75d353dcb0c2b71b41a38d748bf1e6" kind="function"><name>transposeMatrixDiagonalOpenMP</name></member>
-    <member refid="transpose_8cpp_1a150aa08b40e0a366ba5b1f8e9a0068a1" kind="function"><name>transposeMatrixBlockOpenMP</name></member>
+    <member refid="transpose_8cpp_1a4c912b66b43a3eb59fd1f73defed7501" kind="function"><name>swapMatrixBlockRecursive</name></member>
+    <member refid="transpose_8cpp_1a3349f528be40576db56cbb060c3f7733" kind="function"><name>transposeMatrixBlockRecursive</name></member>
     <member refid="transpose_8cpp_1a2a27d2857160f4fa83323e0707fa22f7" kind="function"><name>transposeMatrixDiagonalPThread</name></member>
     <member refid="transpose_8cpp_1a6cc7281b28b72ec052efb82e407a4cec" kind="function"><name>transposeMatrixBlockPThread</name></member>
   </compound>
@@ -32,7 +33,8 @@
     <member refid="transpose_8h_1a8389ce2576524c4717d73986aa3a75db" kind="function"><name>transposeMatrixSerial</name></member>
     <member refid="transpose_8h_1ae8660fb96fc2e988798dc6fa6bf109d8" kind="function"><name>transposeMatrixSimpleOpenMP</name></member>
     <member refid="transpose_8h_1aed75d353dcb0c2b71b41a38d748bf1e6" kind="function"><name>transposeMatrixDiagonalOpenMP</name></member>
-    <member refid="transpose_8h_1a150aa08b40e0a366ba5b1f8e9a0068a1" kind="function"><name>transposeMatrixBlockOpenMP</name></member>
+    <member refid="transpose_8h_1a4c912b66b43a3eb59fd1f73defed7501" kind="function"><name>swapMatrixBlockRecursive</name></member>
+    <member refid="transpose_8h_1a3349f528be40576db56cbb060c3f7733" kind="function"><name>transposeMatrixBlockRecursive</name></member>
     <member refid="transpose_8h_1a2a27d2857160f4fa83323e0707fa22f7" kind="function"><name>transposeMatrixDiagonalPThread</name></member>
     <member refid="transpose_8h_1a6cc7281b28b72ec052efb82e407a4cec" kind="function"><name>transposeMatrixBlockPThread</name></member>
   </compound>

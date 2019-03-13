@@ -120,7 +120,7 @@ Prints an NxM matrix. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/utilities.h" line="19" column="1" bodyfile="src/utilities.cpp" bodystart="5" bodyend="14"/>
+        <location file="src/utilities.h" line="19" column="1" bodyfile="src/utilities.cpp" bodystart="5" bodyend="16"/>
       </memberdef>
       <memberdef kind="function" id="utilities_8h_1a5c2f3af52342f306811aec819d0a9066" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -160,7 +160,7 @@ Caches a matrix to disk. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/utilities.h" line="24" column="1" bodyfile="src/utilities.cpp" bodystart="17" bodyend="34"/>
+        <location file="src/utilities.h" line="24" column="1" bodyfile="src/utilities.cpp" bodystart="19" bodyend="37"/>
       </memberdef>
       <memberdef kind="function" id="utilities_8h_1a5d4d2e1aca9cbe74b6835b77474c9908" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="class_matrix" kindref="compound">Matrix</ref></type>
@@ -188,7 +188,7 @@ Reads a matrix into memory from disk. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/utilities.h" line="28" column="1" bodyfile="src/utilities.cpp" bodystart="37" bodyend="56"/>
+        <location file="src/utilities.h" line="28" column="1" bodyfile="src/utilities.cpp" bodystart="40" bodyend="63"/>
       </memberdef>
       <memberdef kind="function" id="utilities_8h_1a8579d4479020051ea68be3fc5370a0f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -228,7 +228,7 @@ Compares two matrices to check if all elements are the same. </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/utilities.h" line="33" column="1" bodyfile="src/utilities.cpp" bodystart="59" bodyend="78"/>
+        <location file="src/utilities.h" line="33" column="1" bodyfile="src/utilities.cpp" bodystart="66" bodyend="88"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
