@@ -13,7 +13,7 @@ using namespace std::chrono;
 
 int main()
 {
-    // overall system time elapsed
+    // Overall system time elapsed
 	clock_t start_time = clock();
 
     // Output setup
