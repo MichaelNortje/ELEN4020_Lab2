@@ -1,3 +1,6 @@
+/// \file
+/// \brief Main file for comparing time performance of in-place matrix transposition algorithms
+
 #include <chrono>
 #include <assert.h>
 #include <functional>
