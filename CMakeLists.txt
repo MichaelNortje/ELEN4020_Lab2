@@ -8,7 +8,8 @@ set(CMAKE_BUILD_TYPE "Debug")
 # set (CMAKE_CXX_FLAGS "-v")
 set (CMAKE_CXX_FLAGS "-Wno-unused-command-line-argument")
 
-set(SOURCE  src/utilities.cpp
+set(SOURCE  src/Matrix.h
+            src/utilities.cpp
             src/transpose.cpp
             src/lab2.cpp)
 
