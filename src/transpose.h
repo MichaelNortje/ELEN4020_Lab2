@@ -1,7 +1,7 @@
 #ifndef TRANSPOSE_H
 #define TRANSPOSE_H
 /// \file
-/// \brief Main file for comparing time performance of in-place matrix transposition algorithms
+/// \brief The in-place matrix transposition algorithms
 
 #include "utilities.h"
 #include "omp.h"
@@ -9,8 +9,8 @@
 using namespace std;
 
 /// \brief Transposes a matrix, using serial algorithm
-/// \param A A single dimension of the square matrix to compaet
-/// \param A B single dimension of the square matrix
+/// \param A single dimension of the square matrix to compare
+/// \param B single dimension of the square matrix 
 void transposeMatrixSerial(Matrix A, int N);
 
 /// \brief Transposes a matrix, using OpenMP Naive threaded algorithm

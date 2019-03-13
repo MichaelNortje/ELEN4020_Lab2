@@ -1,5 +1,7 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
+/// \file
+/// \brief Various output and validation methods for confirming transposition
 
 #include <iostream>
 #include <iomanip>

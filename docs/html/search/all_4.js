@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['set',['set',['../class_matrix.html#aedf6d7aba0136c6bc37fdab4a4a7d613',1,'Matrix']]],
-  ['size',['size',['../class_matrix.html#a7e960a1c6e8f5aa90dddb18d9394890c',1,'Matrix']]],
-  ['swap',['swap',['../class_matrix.html#ab841a21fe00fc2dab4a4252d2daa1a28',1,'Matrix']]]
+  ['matricesareequal',['matricesAreEqual',['../utilities_8h.html#a8579d4479020051ea68be3fc5370a0f8',1,'utilities.cpp']]],
+  ['matrix',['Matrix',['../class_matrix.html',1,'Matrix'],['../class_matrix.html#aa9d5b60eef1b5eed3aa3ceb95f026e2c',1,'Matrix::Matrix()']]]
 ];

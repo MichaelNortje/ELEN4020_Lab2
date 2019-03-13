@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['randomizevalues',['randomizeValues',['../class_matrix.html#a88a20dc499081a96d11ce633b42b51eb',1,'Matrix']]]
+  ['matricesareequal',['matricesAreEqual',['../utilities_8h.html#a8579d4479020051ea68be3fc5370a0f8',1,'utilities.cpp']]],
+  ['matrix',['Matrix',['../class_matrix.html#aa9d5b60eef1b5eed3aa3ceb95f026e2c',1,'Matrix']]]
 ];
