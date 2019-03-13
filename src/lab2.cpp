@@ -36,7 +36,7 @@ int main()
     // vector<int> sizes = {3};
 
     int num_of_functions = 4;
-    auto display = true;
+    auto display = false;
     
     for (auto& N : sizes)
     {
