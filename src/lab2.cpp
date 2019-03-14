@@ -39,7 +39,7 @@ int main()
     // vector<int> sizes = {8};
 
     int num_of_functions = 5;
-    auto display = false;
+    auto display = true;
     
     for (auto& N : sizes)
     {
