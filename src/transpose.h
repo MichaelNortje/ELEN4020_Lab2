@@ -10,35 +10,29 @@ using namespace std;
 
 /// \brief Transposes a matrix, using serial algorithm
 /// \param The matrix to transpose
-/// \param The number of row/columns
 void transposeMatrixSerial(Matrix A);
 
 /// \brief Transposes a matrix, using OpenMP Naive threaded algorithm
 /// \param N The number of row/columns
 /// \param The matrix to transpose
-/// \param The number of row/columns
 void transposeMatrixSimpleOpenMP(Matrix A);
 
 /// \brief Transposes a matrix, using OpenMP threaded algorithm
 //  which swaps row/columns, with a thread per diagonal entry
 /// \param The matrix to transpose
-/// \param The number of row/columns
 void transposeMatrixDiagonalOpenMP(Matrix A);
 
 // \brief Transposes a matrix, using OpenMP block-oriented algorithm
 //  with a thread per "block"
 /// \param The matrix to transpose
-/// \param The number of row/columns
 void transposeMatrixBlockOpenMP(Matrix A);
 
 /// \brief Transposes a matrix, using PThreaded algorithm which swaps row/columns along diagonal
 /// \param The matrix to transpose
-/// \param The number of row/columns
 void transposeMatrixDiagonalPThread(Matrix A);
 
 /// \brief Transposes a matrix, using PThreaded version of block-oriented method
 /// \param The matrix to transpose
-/// \param The number of row/columns
 void transposeMatrixBlockPThread(Matrix A);
 
 #endif

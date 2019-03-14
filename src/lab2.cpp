@@ -28,8 +28,8 @@ int main()
 	output_file << setw(width) << left << "OpenMP:Naive";
     output_file << setw(width) << left << "OpenMP:Diagonal";
 	output_file << setw(width) << left << "OpenMP:Block";
-    // output_file << setw(width) << left << "PThreads:Diagonal";
-	// output_file << setw(width) << left << "PThreads:Block";
+    output_file << setw(width) << left << "PThreads:Diagonal";
+	output_file << setw(width) << left << "PThreads:Block";
 	output_file << endl;
     
     vector<function<void (Matrix)>> vector_of_transpose_functions;     // vector of pointers to functions
@@ -51,11 +51,11 @@ int main()
     for (auto& N : sizes)
     {
         Matrix A(N);
-        Matrix B(N);
-
         A.randomizeValues();
         string validationFile = "data.txt";
         writeMatrixToFile(validationFile, A);
+        
+        Matrix B(N);
         B = readMatrixfromFile(validationFile);
 
         output_file << setw(width) << left << N;
