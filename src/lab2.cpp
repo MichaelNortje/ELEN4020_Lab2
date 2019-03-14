@@ -28,7 +28,7 @@ int main()
 	output_file << setw(width) << left << "OpenMP:Naive";
     output_file << setw(width) << left << "OpenMP:Diagonal";
     output_file << setw(width) << left << "Recursive Block";
-	// output_file << setw(width) << left << "OpenMP:Block";
+	output_file << setw(width) << left << "OpenMP:Block";
     // output_file << setw(width) << left << "PThreads:Diagonal";
 	// output_file << setw(width) << left << "PThreads:Block";
 	output_file << endl;
@@ -36,9 +36,9 @@ int main()
     // vector<int> sizes = {2, 4, 8, 16, 32, 64, 128, 512, 1024, 2048, 4096, 8196, 16348};
     vector<int> sizes = {128, 1024, 2048, 4096};
     // vector<int> sizes = {2, 4, 6, 8, 10};
-    // vector<int> sizes = {3};
+    // vector<int> sizes = {8};
 
-    int num_of_functions = 4;
+    int num_of_functions = 5;
     auto display = false;
     
     for (auto& N : sizes)
@@ -54,7 +54,6 @@ int main()
         output_file << setw(width) << left << N;
 
         if (display) { printf("\nN = %d: \n---------\n", N);}
-
         
         for(auto i = 0; i < num_of_functions; i++)
         {
@@ -76,6 +75,7 @@ int main()
                     transposeMatrixBlockRecursive(A, 0, N);
                     break;
                 case 4:
+                    transposeMatrixBlockOpenMP(A, N);
                     break;
                 case 5:
                     break;

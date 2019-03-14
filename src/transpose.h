@@ -39,6 +39,12 @@ void swapMatrixBlockRecursive(Matrix A, int row_beg, int row_end, int col_beg, i
 /// \param The ending entry to treat as the end of the block
 void transposeMatrixBlockRecursive(Matrix A, int start, int finish);
 
+// \brief Transposes a matrix, using OpenMP block-oriented algorithm
+//  with a thread per "block"
+/// \param The matrix to transpose
+/// \param The number of row/columns
+void transposeMatrixBlockOpenMP(Matrix A, int N);
+
 /// \brief Transposes a matrix, using PThreaded algorithm which swaps row/columns along diagonal
 /// \param The matrix to transpose
 /// \param The number of row/columns

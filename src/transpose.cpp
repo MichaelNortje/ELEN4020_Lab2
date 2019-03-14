@@ -12,8 +12,8 @@ void transposeMatrixSerial(Matrix A, int N)
 }
 
 void transposeMatrixSimpleOpenMP(Matrix A, int N)
-{
-    #pragma omp parallel for
+{ 
+    #pragma omp parallel for // collapse(2)
     for (auto i = 0; i < N; i++) {
         for (auto j = 0; j < i; j++) {
             if (i!=j) {
@@ -67,6 +67,46 @@ void transposeMatrixBlockRecursive(Matrix A, int start, int finish)
                 }
             }
         }
+}
+
+void transposeMatrixBlockOpenMP(Matrix A, int N)
+{
+        auto stride = 2;
+        // #pragma omp parallel
+        for(auto row = 0; row < N; row+=stride) {
+            for(auto col = 0; col <= row; col+=stride) {
+                if (row == col) {
+                    uint32_t temp1 = A.at(row+1, col);
+                    A.set(row+1, col, A.at(row, col+1));
+                    A.set(row, col+1, temp1);
+                } else {
+                    // Chunk into blocks:
+                    // Matrix B(2); // temp
+                    // Matrix C(2); // temp
+                    for(auto i = 0; i < stride; i++){
+                        for(auto j = 0; j < stride; j++) {
+                            uint32_t temp = A.at(col+j, row+i);
+                            A.set(col+j, row+i, A.at(row+i, col+j));
+                            A.set(row+i, col+j, temp);
+                            // B.set(j, i, A.at(col+j, row+i));
+                            // C.set(i, j, A.at(row+i, col+j));
+                        }
+                    }
+                    // printf("B = A_%d%d : \n", col, row);
+                    // print2d(B);
+                    // printf("C = A_%d%d : \n", row, col);
+                    // print2d(C);
+                }
+            }
+        }
+        // Transpose in each block:
+        // #pragma omp parallel
+        // for(auto i = 0; i < N; i+=2) {
+        //     for(auto j = 1; j < N; j+=2) {
+        //         A.swap(i,j);
+        //     }
+        // }
+    // cout << "Count = " << count << endl;
 }
 
 void transposeMatrixDiagonalPThread(Matrix A, int N)
