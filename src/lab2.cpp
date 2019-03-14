@@ -27,18 +27,25 @@ int main()
 	output_file << setw(width) << left << "Serial";
 	output_file << setw(width) << left << "OpenMP:Naive";
     output_file << setw(width) << left << "OpenMP:Diagonal";
-    output_file << setw(width) << left << "Recursive Block";
 	output_file << setw(width) << left << "OpenMP:Block";
     // output_file << setw(width) << left << "PThreads:Diagonal";
 	// output_file << setw(width) << left << "PThreads:Block";
 	output_file << endl;
+    
+    vector<function<void (Matrix)>> vector_of_transpose_functions;     // vector of pointers to functions
+
+    vector_of_transpose_functions.push_back(transposeMatrixSerial);
+    vector_of_transpose_functions.push_back(transposeMatrixSimpleOpenMP);
+    vector_of_transpose_functions.push_back(transposeMatrixDiagonalOpenMP);
+    vector_of_transpose_functions.push_back(transposeMatrixBlockOpenMP);
+    // vector_of_transpose_functions.push_back(transposeMatrixDiagonalPThread);
+    // vector_of_transpose_functions.push_back(transposeMatrixBlockPThread);
 
     // vector<int> sizes = {2, 4, 8, 16, 32, 64, 128, 512, 1024, 2048, 4096, 8196, 16348};
     vector<int> sizes = {128, 1024, 2048, 4096};
     // vector<int> sizes = {2, 4, 6, 8, 10};
     // vector<int> sizes = {8};
 
-    int num_of_functions = 5;
     auto display = true;
     
     for (auto& N : sizes)
@@ -52,39 +59,16 @@ int main()
         B = readMatrixfromFile(validationFile);
 
         output_file << setw(width) << left << N;
-
         if (display) { printf("\nN = %d: \n---------\n", N);}
-        
-        for(auto i = 0; i < num_of_functions; i++)
-        {
+        auto num_of_functions = vector_of_transpose_functions.size();
+
+        for(auto i = 0; i < num_of_functions; i++){
             if (display){printf("Timing algorithm %d/%d... \n", i+1, num_of_functions);}
-            
             steady_clock::time_point t1 = steady_clock::now();
-            switch (i)                                                     // perform the relevant algorithm
-            {
-                case 0:
-                    transposeMatrixSerial(A, N);
-                    break;
-                case 1:
-                    transposeMatrixSimpleOpenMP(A, N);
-                    break;
-                case 2:
-                    transposeMatrixDiagonalOpenMP(A, N);
-                    break;
-                case 3:
-                    transposeMatrixBlockRecursive(A, 0, N);
-                    break;
-                case 4:
-                    transposeMatrixBlockOpenMP(A, N);
-                    break;
-                case 5:
-                    break;
-                default:
-                    break;
-            }
+            vector_of_transpose_functions[i](A);                            // perform the algorithm
             steady_clock::time_point t2 = steady_clock::now();
             auto time_taken = duration_cast<duration<double>>(t2 - t1);     // record the time delta
-            transposeMatrixSerial(A, N);                                    // restore the original matrix
+            transposeMatrixSerial(A);                                       // restore the original matrix
             assert(matricesAreEqual(A, B));                                 // confirm the algorithm works
             output_file << setw(width) << left << setprecision(7) << fixed << time_taken.count();
         }
