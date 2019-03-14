@@ -83,39 +83,131 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8389ce2576524c4717d73986aa3a75db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#a8389ce2576524c4717d73986aa3a75db">transposeMatrixSerial</a> (<a class="el" href="class_matrix.html">Matrix</a> A, int N)</td></tr>
-<tr class="memdesc:a8389ce2576524c4717d73986aa3a75db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes a matrix, using serial algorithm.  <a href="#a8389ce2576524c4717d73986aa3a75db">More...</a><br /></td></tr>
-<tr class="separator:a8389ce2576524c4717d73986aa3a75db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8660fb96fc2e988798dc6fa6bf109d8"><td class="memItemLeft" align="right" valign="top"><a id="ae8660fb96fc2e988798dc6fa6bf109d8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#ae8660fb96fc2e988798dc6fa6bf109d8">transposeMatrixSimpleOpenMP</a> (<a class="el" href="class_matrix.html">Matrix</a> A, int N)</td></tr>
-<tr class="memdesc:ae8660fb96fc2e988798dc6fa6bf109d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes a matrix, using OpenMP Naive threaded algorithm. <br /></td></tr>
-<tr class="separator:ae8660fb96fc2e988798dc6fa6bf109d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed75d353dcb0c2b71b41a38d748bf1e6"><td class="memItemLeft" align="right" valign="top"><a id="aed75d353dcb0c2b71b41a38d748bf1e6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#aed75d353dcb0c2b71b41a38d748bf1e6">transposeMatrixDiagonalOpenMP</a> (<a class="el" href="class_matrix.html">Matrix</a> A, int N)</td></tr>
-<tr class="memdesc:aed75d353dcb0c2b71b41a38d748bf1e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes a matrix, using OpenMP threaded algorithm. <br /></td></tr>
-<tr class="separator:aed75d353dcb0c2b71b41a38d748bf1e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c912b66b43a3eb59fd1f73defed7501"><td class="memItemLeft" align="right" valign="top"><a id="a4c912b66b43a3eb59fd1f73defed7501"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#a4c912b66b43a3eb59fd1f73defed7501">swapMatrixBlockRecursive</a> (<a class="el" href="class_matrix.html">Matrix</a> A, int row_beg, int row_end, int col_beg, int col_end)</td></tr>
-<tr class="memdesc:a4c912b66b43a3eb59fd1f73defed7501"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively swaps sub-matrices in a block-oriented method. <br /></td></tr>
-<tr class="separator:a4c912b66b43a3eb59fd1f73defed7501"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3349f528be40576db56cbb060c3f7733"><td class="memItemLeft" align="right" valign="top"><a id="a3349f528be40576db56cbb060c3f7733"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#a3349f528be40576db56cbb060c3f7733">transposeMatrixBlockRecursive</a> (<a class="el" href="class_matrix.html">Matrix</a> A, int start, int finish)</td></tr>
-<tr class="memdesc:a3349f528be40576db56cbb060c3f7733"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively transposes a matrix in a block-oriented method. <br /></td></tr>
-<tr class="separator:a3349f528be40576db56cbb060c3f7733"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a27d2857160f4fa83323e0707fa22f7"><td class="memItemLeft" align="right" valign="top"><a id="a2a27d2857160f4fa83323e0707fa22f7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#a2a27d2857160f4fa83323e0707fa22f7">transposeMatrixDiagonalPThread</a> (<a class="el" href="class_matrix.html">Matrix</a> A, int N)</td></tr>
-<tr class="memdesc:a2a27d2857160f4fa83323e0707fa22f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes a matrix, using PThreaded algorithm which swaps row/columns along diagonal. <br /></td></tr>
-<tr class="separator:a2a27d2857160f4fa83323e0707fa22f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cc7281b28b72ec052efb82e407a4cec"><td class="memItemLeft" align="right" valign="top"><a id="a6cc7281b28b72ec052efb82e407a4cec"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#a6cc7281b28b72ec052efb82e407a4cec">transposeMatrixBlockPThread</a> (<a class="el" href="class_matrix.html">Matrix</a> A, int N)</td></tr>
-<tr class="memdesc:a6cc7281b28b72ec052efb82e407a4cec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes a matrix, using PThreaded version of block-oriented method. <br /></td></tr>
-<tr class="separator:a6cc7281b28b72ec052efb82e407a4cec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acff5e7e6d0150313ddce4df2f219d498"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#acff5e7e6d0150313ddce4df2f219d498">transposeMatrixSerial</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
+<tr class="memdesc:acff5e7e6d0150313ddce4df2f219d498"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes a matrix, using serial algorithm.  <a href="#acff5e7e6d0150313ddce4df2f219d498">More...</a><br /></td></tr>
+<tr class="separator:acff5e7e6d0150313ddce4df2f219d498"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4e949a60cd419e20e803424b73cc858"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#ac4e949a60cd419e20e803424b73cc858">transposeMatrixSimpleOpenMP</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
+<tr class="memdesc:ac4e949a60cd419e20e803424b73cc858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes a matrix, using OpenMP Naive threaded algorithm.  <a href="#ac4e949a60cd419e20e803424b73cc858">More...</a><br /></td></tr>
+<tr class="separator:ac4e949a60cd419e20e803424b73cc858"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b3f4bc7eaa5897f3fddc5af4e2e0eee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#a9b3f4bc7eaa5897f3fddc5af4e2e0eee">transposeMatrixDiagonalOpenMP</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
+<tr class="memdesc:a9b3f4bc7eaa5897f3fddc5af4e2e0eee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes a matrix, using OpenMP threaded algorithm.  <a href="#a9b3f4bc7eaa5897f3fddc5af4e2e0eee">More...</a><br /></td></tr>
+<tr class="separator:a9b3f4bc7eaa5897f3fddc5af4e2e0eee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6089098b03cd2855e72536a77c5b574c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#a6089098b03cd2855e72536a77c5b574c">transposeMatrixBlockOpenMP</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
+<tr class="separator:a6089098b03cd2855e72536a77c5b574c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a646bac061d893acf838803e757504551"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#a646bac061d893acf838803e757504551">transposeMatrixDiagonalPThread</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
+<tr class="memdesc:a646bac061d893acf838803e757504551"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes a matrix, using PThreaded algorithm which swaps row/columns along diagonal.  <a href="#a646bac061d893acf838803e757504551">More...</a><br /></td></tr>
+<tr class="separator:a646bac061d893acf838803e757504551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eb51c5940867c227232858f91c36afe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#a2eb51c5940867c227232858f91c36afe">transposeMatrixBlockPThread</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
+<tr class="memdesc:a2eb51c5940867c227232858f91c36afe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes a matrix, using PThreaded version of block-oriented method.  <a href="#a2eb51c5940867c227232858f91c36afe">More...</a><br /></td></tr>
+<tr class="separator:a2eb51c5940867c227232858f91c36afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The in-place matrix transposition algorithms. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a8389ce2576524c4717d73986aa3a75db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8389ce2576524c4717d73986aa3a75db">&#9670;&nbsp;</a></span>transposeMatrixSerial()</h2>
+<a id="a6089098b03cd2855e72536a77c5b574c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6089098b03cd2855e72536a77c5b574c">&#9670;&nbsp;</a></span>transposeMatrixBlockOpenMP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void transposeMatrixBlockOpenMP </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>A</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">The</td><td>matrix to transpose </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2eb51c5940867c227232858f91c36afe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eb51c5940867c227232858f91c36afe">&#9670;&nbsp;</a></span>transposeMatrixBlockPThread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void transposeMatrixBlockPThread </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>A</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transposes a matrix, using PThreaded version of block-oriented method. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">The</td><td>matrix to transpose </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9b3f4bc7eaa5897f3fddc5af4e2e0eee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b3f4bc7eaa5897f3fddc5af4e2e0eee">&#9670;&nbsp;</a></span>transposeMatrixDiagonalOpenMP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void transposeMatrixDiagonalOpenMP </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>A</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transposes a matrix, using OpenMP threaded algorithm. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">The</td><td>matrix to transpose </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a646bac061d893acf838803e757504551"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a646bac061d893acf838803e757504551">&#9670;&nbsp;</a></span>transposeMatrixDiagonalPThread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void transposeMatrixDiagonalPThread </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>A</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transposes a matrix, using PThreaded algorithm which swaps row/columns along diagonal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">The</td><td>matrix to transpose </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acff5e7e6d0150313ddce4df2f219d498"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acff5e7e6d0150313ddce4df2f219d498">&#9670;&nbsp;</a></span>transposeMatrixSerial()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,18 +216,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
           <td class="memname">void transposeMatrixSerial </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td>
-          <td class="paramname"><em>A</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>A</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>N</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -143,8 +225,34 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 <p>Transposes a matrix, using serial algorithm. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">A</td><td>single dimension of the square matrix to compare </td></tr>
-    <tr><td class="paramname">B</td><td>single dimension of the square matrix </td></tr>
+    <tr><td class="paramname">The</td><td>matrix to transpose </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac4e949a60cd419e20e803424b73cc858"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4e949a60cd419e20e803424b73cc858">&#9670;&nbsp;</a></span>transposeMatrixSimpleOpenMP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void transposeMatrixSimpleOpenMP </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td>
+          <td class="paramname"><em>A</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transposes a matrix, using OpenMP Naive threaded algorithm. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">N</td><td>The number of row/columns </td></tr>
+    <tr><td class="paramname">The</td><td>matrix to transpose </td></tr>
   </table>
   </dd>
 </dl>
