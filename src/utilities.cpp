@@ -5,10 +5,8 @@
 void print2d(Matrix A){
     const auto N = A.size();
     cout << N << "x" << N << endl;
-    for (auto i = 0; i < N; i++)
-    {
-        for (auto j = 0; j < N; j++)
-        {
+    for (auto i = 0; i < N; i++){
+        for (auto j = 0; j < N; j++){
             cout << A.at(i, j) << "\t";
         }
         cout << endl;
@@ -19,16 +17,13 @@ void print2d(Matrix A){
 void writeMatrixToFile(string fileName, Matrix A)
 {
     ofstream outputFile(fileName, ios::out);
-    if (!outputFile.is_open())
-    {
+    if (!outputFile.is_open()){
         cout << "Unable to open file:" << fileName << endl;
     }
     const auto N = A.size();
     outputFile << N << endl;
-    for (auto i = 0; i < N; i++)
-    {
-        for (auto j = 0; j < N; j++)
-        {
+    for (auto i = 0; i < N; i++){
+        for (auto j = 0; j < N; j++){
             outputFile << A.at(i, j) << "\t";
         }
         outputFile << endl;
@@ -40,8 +35,7 @@ void writeMatrixToFile(string fileName, Matrix A)
 Matrix readMatrixfromFile(string fileName)
 {
     ifstream inputFile(fileName, ios::in);
-    if (!inputFile.is_open())
-    {
+    if (!inputFile.is_open()){
         cout << "Unable to open file:" << fileName << endl;
     }
     inputFile.seekg(0, ios::beg);
@@ -51,10 +45,8 @@ Matrix readMatrixfromFile(string fileName)
     inputFile >> N;
     Matrix A(N);
 
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < N; j++)
-        {
+    for (int i = 0; i < N; i++){
+        for (int j = 0; j < N; j++){
             inputFile >> val;
             A.set(i, j, val);
         }
@@ -67,18 +59,13 @@ bool matricesAreEqual(Matrix A, Matrix B)
 {    
     const auto N = A.size();
     const auto M = B.size();
-    if (N!=M)
-    {
+    if (N!=M) {
         cout << "Error: Matrix sizes do not match" << endl;
         return -1;
     }
-
-    for (auto i = 0; i < N; i++)
-    {
-        for (auto j = 0; j < N; j++)
-        {
-            if (A.at(i, j) != B.at(i, j))
-            {
+    for (auto i = 0; i < N; i++){
+        for (auto j = 0; j < N; j++){
+            if (A.at(i, j) != B.at(i, j)){
                 cout << "Error: Matrix sizes do not match at (" << i << "," << j << ")" << endl;
                 return 0;
             }

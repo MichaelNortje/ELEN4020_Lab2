@@ -1,7 +1,8 @@
 #include "transpose.h"
 
-void transposeMatrixSerial(Matrix A, int N)
+void transposeMatrixSerial(Matrix A)
 {
+    auto N = A.size();
     for (auto i = 0; i < N; i++) {
         for (auto j = 0; j < i; j++) {
             if (i!=j) {
@@ -11,9 +12,10 @@ void transposeMatrixSerial(Matrix A, int N)
     }
 }
 
-void transposeMatrixSimpleOpenMP(Matrix A, int N)
-{
-    #pragma omp parallel for
+void transposeMatrixSimpleOpenMP(Matrix A)
+{ 
+    auto N = A.size();
+    #pragma omp parallel for // collapse(2)
     for (auto i = 0; i < N; i++) {
         for (auto j = 0; j < i; j++) {
             if (i!=j) {
@@ -23,8 +25,9 @@ void transposeMatrixSimpleOpenMP(Matrix A, int N)
     }
 }
 
-void transposeMatrixDiagonalOpenMP(Matrix A, int N)
+void transposeMatrixDiagonalOpenMP(Matrix A)
 {
+    auto N = A.size();
     #pragma omp parallel for
     for (auto i = 0; i < N; i++) {
         for (auto j = i + 1; j < N; j++) {
@@ -33,48 +36,36 @@ void transposeMatrixDiagonalOpenMP(Matrix A, int N)
     }
 }
 
-void swapMatrixBlockRecursive(Matrix A, int row_beg, int row_end, int col_beg, int col_end)
+void transposeMatrixBlockOpenMP(Matrix A)
 {
-        if (row_end - row_beg > 2 && col_end - col_beg > 2) {
-            int row_mid = (row_beg + row_end) / 2;
-            int col_mid = (col_beg + col_end) / 2;
-            {
-                swapMatrixBlockRecursive(A, row_beg,  row_mid,  col_beg,  col_mid);
-                swapMatrixBlockRecursive(A, row_beg,  row_mid,  col_mid,  col_end);
-                swapMatrixBlockRecursive(A, row_mid,  row_end,  col_beg,  col_mid);
-                swapMatrixBlockRecursive(A, row_mid,  row_end,  col_mid,  col_end);
-            }
-        } else {
-            for (auto i = row_beg; i < row_end; i++) {
-                for (auto j = col_beg; j < col_end; j++) {
-                    A.swap(i, j);
+    auto N = A.size();
+    auto stride = 2;
+    #pragma omp parallel for
+    for(auto row = 0; row < N; row+=stride) {
+        for(auto col = 0; col <= row; col+=stride) {
+            if (row == col) {
+                uint32_t temp1 = A.at(row+1, col);
+                A.set(row+1, col, A.at(row, col+1));
+                A.set(row, col+1, temp1);
+            } else {
+                for(auto i = 0; i < stride; i++){
+                    for(auto j = 0; j < stride; j++) {
+                        uint32_t temp = A.at(col+j, row+i);
+                        A.set(col+j, row+i, A.at(row+i, col+j));
+                        A.set(row+i, col+j, temp);
+                    }
                 }
             }
         }
+    }
 }
 
-void transposeMatrixBlockRecursive(Matrix A, int start, int finish)
+void transposeMatrixDiagonalPThread(Matrix A)
 {
-        if (finish - start > 2) {
-            auto middle = (start + finish) / 2;
-            transposeMatrixBlockRecursive(A, start, middle);
-            transposeMatrixBlockRecursive(A, middle, finish);
-            swapMatrixBlockRecursive(A, middle, finish, start, middle);
-        } else {
-            for (auto i = start; i < finish; i++) {
-                for (auto j = start+1; j < finish; j++) {
-                    A.swap(i, j);   
-                }
-            }
-        }
+    auto N = A.size();
 }
 
-void transposeMatrixDiagonalPThread(Matrix A, int N)
+void transposeMatrixBlockPThread(Matrix A)
 {
-
-}
-
-void transposeMatrixBlockPThread(Matrix A, int N)
-{
-
+    auto N = A.size();
 }
