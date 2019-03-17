@@ -51,10 +51,10 @@ int main(int argc, char* argv[])
     // vector_of_transpose_functions.push_back(transposeMatrixBlockPThread);
 
     // Matrices to use for timing
-    vector<int> sizes = {2, 4, 8, 16, 32, 64, 128, 512, 1024, 2048, 4096, 8196, 16348};
-    // vector<int> sizes = {128, 1024, 2048, 4096};
+    // vector<int> sizes = {2, 4, 8, 16, 32, 64, 128, 512, 1024, 2048, 4096, 8196, 16348};
+    vector<int> sizes = {128, 1024, 2048, 4096};
     // vector<int> sizes = {2, 4, 6, 8};
-    // vector<int> sizes = {4};
+    // vector<int> sizes = {8};
     
     for (auto& N : sizes)
     {
@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
         A.randomizeValues();
         string validationFile = "data.txt";
         writeMatrixToFile(validationFile, A);
-
+// if (A.size()<=16)print2d(A);
         Matrix B(N);
         B = readMatrixfromFile(validationFile);
 
