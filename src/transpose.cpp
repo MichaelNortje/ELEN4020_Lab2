@@ -67,17 +67,17 @@ void transposeMatrixBlockOpenMP(Matrix A)
     }
 }
 
-void *transposeMatrixThread(void *args)
+void *diagonalThreadAction(void *args)
 {
     matrix_args *values = (matrix_args *) args;
-    auto N = values->matrix->size();
+    Matrix *A = values->matrix;
+    auto N = A->size();
     auto i = values->row_start;
     auto finish = values->row_end;
     for(; i < finish; i++){
-        for (auto j = i + 1; j < values->matrix->size(); j++) {
+        for (auto j = i + 1; j < N; j++) {
             if (i!=j) {
                 values->matrix->swap(i, j);
-                // printf("Thread starting at row: %d, doing swap(%d,%d)<->(%d,%d)\n",i,i,j,j,i);
             }
         }
     }
@@ -91,9 +91,9 @@ void transposeMatrixDiagonalPThread(Matrix A)
     auto num_threads = getNumThreadsEnvVar();   // get Max threads for fairness
     auto chunk = floor(N/num_threads);          // number of chunks for each thread to do
     pthread_t tid[num_threads];                 // The thread IDs
-    // pthread_attr_t attr;                        // Thread attributes
-    // pthread_attr_init(&attr);                   // initialise default attributes
-    // pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE); // make joinable
+    pthread_attr_t attr;                        // Thread attributes
+    pthread_attr_init(&attr);                   // initialise default attributes
+    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE); // make joinable
     int start = 0;
     int offset = 0;
     for(auto t = 0; t < num_threads; t++){
@@ -103,21 +103,71 @@ void transposeMatrixDiagonalPThread(Matrix A)
             offset = start + chunk;
             values->row_start = start;
             values->row_end = offset;
-            
-            // printf("row start: %d, row:end: %d\n",values->row_start,values->row_end);
-
             pthread_create( &tid[t],
-                            NULL,
-                            transposeMatrixThread,
+                            &attr,
+                            diagonalThreadAction,
                             (void*)values); 
     }
-    // pthread_attr_destroy(&attr);                // remove attribute variable
+    pthread_attr_destroy(&attr);                // remove attribute variable
     for(auto t = 0; t < num_threads; t++){      // wait for all threads to complete
         pthread_join(tid[t], NULL);
     }
 }
 
+void *blockThreadAction(void *args)
+{
+    matrix_args *values = (matrix_args *) args;
+    Matrix *A = values->matrix;
+    // auto N = A->size();
+    auto row = values->row_start;
+    auto finish = values->row_end;
+    auto stride = 2;
+    for(; row < finish; row+=stride) {
+        for(auto col = 0; col <= row; col+=stride) {
+            if (row == col) {
+                uint32_t temp1 = A->at(row+1, col);
+                A->set(row+1, col, A->at(row, col+1));
+                A->set(row, col+1, temp1);
+            } else {
+                for(auto i = 0; i < stride; i++){
+                    for(auto j = 0; j < stride; j++) {
+                        uint32_t temp = A->at(col+j, row+i);
+                        A->set(col+j, row+i, A->at(row+i, col+j));
+                        A->set(row+i, col+j, temp);
+                    }
+                }
+            }
+        }
+    }
+    free(values);
+    pthread_exit(0);
+}
+
 void transposeMatrixBlockPThread(Matrix A)
 {
     auto N = A.size();
+    auto num_threads = getNumThreadsEnvVar();   // get Max threads for fairness
+    auto chunk = floor(N/num_threads);          // number of chunks for each thread to do
+    pthread_t tid[num_threads];                 // The thread IDs
+    pthread_attr_t attr;                        // Thread attributes
+    pthread_attr_init(&attr);                   // initialise default attributes
+    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE); // make joinable
+    int start = 0;
+    int offset = 0;
+    for(auto t = 0; t < num_threads; t++){
+            matrix_args *values = (matrix_args*)malloc(sizeof(matrix_args));
+            values->matrix = &A;
+            start = offset;
+            offset = start + chunk;
+            values->row_start = start;
+            values->row_end = offset;
+            pthread_create( &tid[t],
+                            &attr,
+                            blockThreadAction,
+                            (void*)values); 
+    }
+    pthread_attr_destroy(&attr);                // remove attribute variable
+    for(auto t = 0; t < num_threads; t++){      // wait for all threads to complete
+        pthread_join(tid[t], NULL);
+    }
 }

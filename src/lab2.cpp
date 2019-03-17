@@ -48,7 +48,7 @@ int main(int argc, char* argv[])
     vector_of_transpose_functions.push_back(transposeMatrixDiagonalOpenMP);
     vector_of_transpose_functions.push_back(transposeMatrixBlockOpenMP);
     vector_of_transpose_functions.push_back(transposeMatrixDiagonalPThread);
-    // vector_of_transpose_functions.push_back(transposeMatrixBlockPThread);
+    vector_of_transpose_functions.push_back(transposeMatrixBlockPThread);
 
     // Matrices to use for timing
     // vector<int> sizes = {2, 4, 8, 16, 32, 64, 128, 512, 1024, 2048, 4096, 8196, 16348};
