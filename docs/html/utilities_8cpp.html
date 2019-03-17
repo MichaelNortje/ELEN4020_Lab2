@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ELEN4020 Data Science Laboratory 2: src/utilities.h File Reference</title>
+<title>ELEN4020 Data Science Laboratory 2: src/utilities.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,46 +70,40 @@ $(function() {
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">utilities.h File Reference</div>  </div>
+<div class="title">utilities.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Various output/validation methods for confirming transposition (Definitions)  
+<p>Various output/validation methods for confirming transposition (Implementation)  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;iomanip&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;fstream&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="utilities_8h_source.html">utilities.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_matrix_8h_source.html">Matrix.h</a>&quot;</code><br />
-</div>
-<p><a href="utilities_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae3516cacceadc6f8133a604d89d1b7c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilities_8h.html#ae3516cacceadc6f8133a604d89d1b7c0">print2d</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
-<tr class="memdesc:ae3516cacceadc6f8133a604d89d1b7c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints an NxM matrix.  <a href="#ae3516cacceadc6f8133a604d89d1b7c0">More...</a><br /></td></tr>
+<tr class="memitem:ae3516cacceadc6f8133a604d89d1b7c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilities_8cpp.html#ae3516cacceadc6f8133a604d89d1b7c0">print2d</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
+<tr class="memdesc:ae3516cacceadc6f8133a604d89d1b7c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints an NxN matrix.  <a href="#ae3516cacceadc6f8133a604d89d1b7c0">More...</a><br /></td></tr>
 <tr class="separator:ae3516cacceadc6f8133a604d89d1b7c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c2f3af52342f306811aec819d0a9066"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilities_8h.html#a5c2f3af52342f306811aec819d0a9066">writeMatrixToFile</a> (string fileName, <a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
-<tr class="memdesc:a5c2f3af52342f306811aec819d0a9066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Caches a matrix to disk.  <a href="#a5c2f3af52342f306811aec819d0a9066">More...</a><br /></td></tr>
+<tr class="memitem:a5c2f3af52342f306811aec819d0a9066"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilities_8cpp.html#a5c2f3af52342f306811aec819d0a9066">writeMatrixToFile</a> (string fileName, <a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
+<tr class="memdesc:a5c2f3af52342f306811aec819d0a9066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write an NxM matrix to file.  <a href="#a5c2f3af52342f306811aec819d0a9066">More...</a><br /></td></tr>
 <tr class="separator:a5c2f3af52342f306811aec819d0a9066"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d4d2e1aca9cbe74b6835b77474c9908"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilities_8h.html#a5d4d2e1aca9cbe74b6835b77474c9908">readMatrixfromFile</a> (string fileName)</td></tr>
-<tr class="memdesc:a5d4d2e1aca9cbe74b6835b77474c9908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a matrix into memory from disk.  <a href="#a5d4d2e1aca9cbe74b6835b77474c9908">More...</a><br /></td></tr>
+<tr class="memitem:a5d4d2e1aca9cbe74b6835b77474c9908"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilities_8cpp.html#a5d4d2e1aca9cbe74b6835b77474c9908">readMatrixfromFile</a> (string fileName)</td></tr>
+<tr class="memdesc:a5d4d2e1aca9cbe74b6835b77474c9908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read an NxM matrix from file.  <a href="#a5d4d2e1aca9cbe74b6835b77474c9908">More...</a><br /></td></tr>
 <tr class="separator:a5d4d2e1aca9cbe74b6835b77474c9908"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8579d4479020051ea68be3fc5370a0f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilities_8h.html#a8579d4479020051ea68be3fc5370a0f8">matricesAreEqual</a> (<a class="el" href="class_matrix.html">Matrix</a> A, <a class="el" href="class_matrix.html">Matrix</a> B)</td></tr>
-<tr class="memdesc:a8579d4479020051ea68be3fc5370a0f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two matrices to check if all elements are the same.  <a href="#a8579d4479020051ea68be3fc5370a0f8">More...</a><br /></td></tr>
+<tr class="memitem:a8579d4479020051ea68be3fc5370a0f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilities_8cpp.html#a8579d4479020051ea68be3fc5370a0f8">matricesAreEqual</a> (<a class="el" href="class_matrix.html">Matrix</a> A, <a class="el" href="class_matrix.html">Matrix</a> B)</td></tr>
+<tr class="memdesc:a8579d4479020051ea68be3fc5370a0f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two matrices.  <a href="#a8579d4479020051ea68be3fc5370a0f8">More...</a><br /></td></tr>
 <tr class="separator:a8579d4479020051ea68be3fc5370a0f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86ca6f98f09180f2bdf0920c5850fa92"><td class="memItemLeft" align="right" valign="top"><a id="a86ca6f98f09180f2bdf0920c5850fa92"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilities_8h.html#a86ca6f98f09180f2bdf0920c5850fa92">getEnvironmentVar</a> (string const &amp;env_val)</td></tr>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilities_8cpp.html#a86ca6f98f09180f2bdf0920c5850fa92">getEnvironmentVar</a> (string const &amp;env_val)</td></tr>
 <tr class="memdesc:a86ca6f98f09180f2bdf0920c5850fa92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an Environmental Variable from. <br /></td></tr>
 <tr class="separator:a86ca6f98f09180f2bdf0920c5850fa92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1aea772326fdfba800759bc744212b8c"><td class="memItemLeft" align="right" valign="top"><a id="a1aea772326fdfba800759bc744212b8c"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilities_8h.html#a1aea772326fdfba800759bc744212b8c">getNumThreadsEnvVar</a> ()</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utilities_8cpp.html#a1aea772326fdfba800759bc744212b8c">getNumThreadsEnvVar</a> ()</td></tr>
 <tr class="memdesc:a1aea772326fdfba800759bc744212b8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of threads from OP_NUM_THREADS (if empty, returns 8) <br /></td></tr>
 <tr class="separator:a1aea772326fdfba800759bc744212b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Various output/validation methods for confirming transposition (Definitions) </p>
+<div class="textblock"><p>Various output/validation methods for confirming transposition (Implementation) </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a8579d4479020051ea68be3fc5370a0f8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8579d4479020051ea68be3fc5370a0f8">&#9670;&nbsp;</a></span>matricesAreEqual()</h2>
@@ -137,14 +131,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utili
       </table>
 </div><div class="memdoc">
 
-<p>Compares two matrices to check if all elements are the same. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">The</td><td>first matrix to compare to </td></tr>
-    <tr><td class="paramname">The</td><td>second matrix to compare with</td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Compare two matrices. </p>
 <p>Compares two matrices to check if all elements are the same. </p>
 
 </div>
@@ -165,13 +152,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utili
       </table>
 </div><div class="memdoc">
 
-<p>Prints an NxM matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">The</td><td>matrix to print</td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Prints an NxN matrix. </p>
 <p>Prints an NxM matrix. </p>
 
 </div>
@@ -192,13 +173,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utili
       </table>
 </div><div class="memdoc">
 
-<p>Reads a matrix into memory from disk. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Path</td><td>to the cache file to read</td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Read an NxM matrix from file. </p>
 <p>Reads a matrix into memory from disk. </p>
 
 </div>
@@ -229,14 +204,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utili
       </table>
 </div><div class="memdoc">
 
-<p>Caches a matrix to disk. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Path</td><td>to the cache file to write (replaces contents) </td></tr>
-    <tr><td class="paramname">The</td><td>matrix to cache to disk</td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Write an NxM matrix to file. </p>
 <p>Caches a matrix to disk. </p>
 
 </div>

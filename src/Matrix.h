@@ -1,6 +1,8 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 // Code adapted from suggestions at goo.gl/sF1SK4
+/// \file
+/// \brief Matrix class for 1D aray representation as a 2D array
 
 #include <memory>
 

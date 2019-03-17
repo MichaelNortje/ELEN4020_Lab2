@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['set',['set',['../class_matrix.html#aedf6d7aba0136c6bc37fdab4a4a7d613',1,'Matrix']]],
-  ['size',['size',['../class_matrix.html#a7e960a1c6e8f5aa90dddb18d9394890c',1,'Matrix']]],
-  ['swap',['swap',['../class_matrix.html#ab841a21fe00fc2dab4a4252d2daa1a28',1,'Matrix']]]
+  ['print2d',['print2d',['../utilities_8cpp.html#ae3516cacceadc6f8133a604d89d1b7c0',1,'print2d(Matrix A):&#160;utilities.cpp'],['../utilities_8h.html#ae3516cacceadc6f8133a604d89d1b7c0',1,'print2d(Matrix A):&#160;utilities.cpp']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['transpose_2eh',['transpose.h',['../transpose_8h.html',1,'']]]
+  ['matrix_2eh',['Matrix.h',['../_matrix_8h.html',1,'']]]
 ];

@@ -1,5 +1,7 @@
 #include <math.h>
 #include "transpose.h"
+/// \file
+/// \brief The in-place matrix transposition algorithms  (Implementation)
 
 struct matrix_args{
          Matrix *matrix;

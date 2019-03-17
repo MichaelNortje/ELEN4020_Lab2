@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['transposematrixblockopenmp',['transposeMatrixBlockOpenMP',['../transpose_8h.html#a6089098b03cd2855e72536a77c5b574c',1,'transpose.cpp']]],
-  ['transposematrixblockpthread',['transposeMatrixBlockPThread',['../transpose_8h.html#a2eb51c5940867c227232858f91c36afe',1,'transpose.cpp']]],
-  ['transposematrixdiagonalopenmp',['transposeMatrixDiagonalOpenMP',['../transpose_8h.html#a9b3f4bc7eaa5897f3fddc5af4e2e0eee',1,'transpose.cpp']]],
-  ['transposematrixdiagonalpthread',['transposeMatrixDiagonalPThread',['../transpose_8h.html#a646bac061d893acf838803e757504551',1,'transpose.cpp']]],
-  ['transposematrixserial',['transposeMatrixSerial',['../transpose_8h.html#acff5e7e6d0150313ddce4df2f219d498',1,'transpose.cpp']]],
-  ['transposematrixsimpleopenmp',['transposeMatrixSimpleOpenMP',['../transpose_8h.html#ac4e949a60cd419e20e803424b73cc858',1,'transpose.cpp']]]
+  ['randomizevalues',['randomizeValues',['../class_matrix.html#a88a20dc499081a96d11ce633b42b51eb',1,'Matrix']]],
+  ['readmatrixfromfile',['readMatrixfromFile',['../utilities_8cpp.html#a5d4d2e1aca9cbe74b6835b77474c9908',1,'readMatrixfromFile(string fileName):&#160;utilities.cpp'],['../utilities_8h.html#a5d4d2e1aca9cbe74b6835b77474c9908',1,'readMatrixfromFile(string fileName):&#160;utilities.cpp']]]
 ];

@@ -1,7 +1,7 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 /// \file
-/// \brief Various output and validation methods for confirming transposition
+/// \brief Various output/validation methods for confirming transposition (Definitions)
 
 #include <iostream>
 #include <iomanip>
@@ -11,10 +11,6 @@
 #include "Matrix.h"
 
 using namespace std;
-
-/// \brief Generates an NxN matrix with random int values between 0 and N
-/// \param The number of row/columns
-Matrix generate2d(int N);
 
 /// \brief Prints an NxM matrix
 /// \param The matrix to print

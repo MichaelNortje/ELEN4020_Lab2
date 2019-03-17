@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ELEN4020 Data Science Laboratory 2: src/transpose.h File Reference</title>
+<title>ELEN4020 Data Science Laboratory 2: src/transpose.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -68,48 +68,51 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">transpose.h File Reference</div>  </div>
+<div class="title">transpose.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The in-place matrix transposition algorithms (Definitions)  
+<p>The in-place matrix transposition algorithms (Implementation)  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;omp.h&gt;</code><br />
-<code>#include &lt;pthread.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="utilities_8h_source.html">utilities.h</a>&quot;</code><br />
-</div>
-<p><a href="transpose_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+<div class="textblock"><code>#include &lt;math.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="transpose_8h_source.html">transpose.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmatrix__args.html">matrix_args</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:acff5e7e6d0150313ddce4df2f219d498"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#acff5e7e6d0150313ddce4df2f219d498">transposeMatrixSerial</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
+<tr class="memitem:acff5e7e6d0150313ddce4df2f219d498"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8cpp.html#acff5e7e6d0150313ddce4df2f219d498">transposeMatrixSerial</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
 <tr class="memdesc:acff5e7e6d0150313ddce4df2f219d498"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes a matrix, using serial algorithm.  <a href="#acff5e7e6d0150313ddce4df2f219d498">More...</a><br /></td></tr>
 <tr class="separator:acff5e7e6d0150313ddce4df2f219d498"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4e949a60cd419e20e803424b73cc858"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#ac4e949a60cd419e20e803424b73cc858">transposeMatrixSimpleOpenMP</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
+<tr class="memitem:ac4e949a60cd419e20e803424b73cc858"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8cpp.html#ac4e949a60cd419e20e803424b73cc858">transposeMatrixSimpleOpenMP</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
 <tr class="memdesc:ac4e949a60cd419e20e803424b73cc858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes a matrix, using OpenMP Naive threaded algorithm.  <a href="#ac4e949a60cd419e20e803424b73cc858">More...</a><br /></td></tr>
 <tr class="separator:ac4e949a60cd419e20e803424b73cc858"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b3f4bc7eaa5897f3fddc5af4e2e0eee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#a9b3f4bc7eaa5897f3fddc5af4e2e0eee">transposeMatrixDiagonalOpenMP</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
+<tr class="memitem:a9b3f4bc7eaa5897f3fddc5af4e2e0eee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8cpp.html#a9b3f4bc7eaa5897f3fddc5af4e2e0eee">transposeMatrixDiagonalOpenMP</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
 <tr class="memdesc:a9b3f4bc7eaa5897f3fddc5af4e2e0eee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes a matrix, using OpenMP threaded algorithm.  <a href="#a9b3f4bc7eaa5897f3fddc5af4e2e0eee">More...</a><br /></td></tr>
 <tr class="separator:a9b3f4bc7eaa5897f3fddc5af4e2e0eee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6089098b03cd2855e72536a77c5b574c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#a6089098b03cd2855e72536a77c5b574c">transposeMatrixBlockOpenMP</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
+<tr class="memitem:a6089098b03cd2855e72536a77c5b574c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8cpp.html#a6089098b03cd2855e72536a77c5b574c">transposeMatrixBlockOpenMP</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
 <tr class="separator:a6089098b03cd2855e72536a77c5b574c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4c3b2113fc697e4eb7ee6eeba5f58ed"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#aa4c3b2113fc697e4eb7ee6eeba5f58ed">diagonalThreadAction</a> (void *arg)</td></tr>
-<tr class="memdesc:aa4c3b2113fc697e4eb7ee6eeba5f58ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Per-thread diagonal matrix transpose function.  <a href="#aa4c3b2113fc697e4eb7ee6eeba5f58ed">More...</a><br /></td></tr>
-<tr class="separator:aa4c3b2113fc697e4eb7ee6eeba5f58ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a646bac061d893acf838803e757504551"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#a646bac061d893acf838803e757504551">transposeMatrixDiagonalPThread</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
+<tr class="memitem:a3c3d064a9d884d9169d9d2ec0578b17a"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8cpp.html#a3c3d064a9d884d9169d9d2ec0578b17a">diagonalThreadAction</a> (void *args)</td></tr>
+<tr class="memdesc:a3c3d064a9d884d9169d9d2ec0578b17a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Per-thread diagonal matrix transpose function.  <a href="#a3c3d064a9d884d9169d9d2ec0578b17a">More...</a><br /></td></tr>
+<tr class="separator:a3c3d064a9d884d9169d9d2ec0578b17a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a646bac061d893acf838803e757504551"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8cpp.html#a646bac061d893acf838803e757504551">transposeMatrixDiagonalPThread</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
 <tr class="memdesc:a646bac061d893acf838803e757504551"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes a matrix, using PThreaded algorithm which swaps row/columns along diagonal.  <a href="#a646bac061d893acf838803e757504551">More...</a><br /></td></tr>
 <tr class="separator:a646bac061d893acf838803e757504551"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a240962f38bcce10b343bc3127219ee11"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#a240962f38bcce10b343bc3127219ee11">blockThreadAction</a> (void *args)</td></tr>
+<tr class="memitem:a240962f38bcce10b343bc3127219ee11"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8cpp.html#a240962f38bcce10b343bc3127219ee11">blockThreadAction</a> (void *args)</td></tr>
 <tr class="memdesc:a240962f38bcce10b343bc3127219ee11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Per-thread block-oriented matrix transpose function.  <a href="#a240962f38bcce10b343bc3127219ee11">More...</a><br /></td></tr>
 <tr class="separator:a240962f38bcce10b343bc3127219ee11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eb51c5940867c227232858f91c36afe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8h.html#a2eb51c5940867c227232858f91c36afe">transposeMatrixBlockPThread</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
+<tr class="memitem:a2eb51c5940867c227232858f91c36afe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transpose_8cpp.html#a2eb51c5940867c227232858f91c36afe">transposeMatrixBlockPThread</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
 <tr class="memdesc:a2eb51c5940867c227232858f91c36afe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes a matrix, using PThreaded version of block-oriented method.  <a href="#a2eb51c5940867c227232858f91c36afe">More...</a><br /></td></tr>
 <tr class="separator:a2eb51c5940867c227232858f91c36afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The in-place matrix transposition algorithms (Definitions) </p>
+<div class="textblock"><p>The in-place matrix transposition algorithms (Implementation) </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a240962f38bcce10b343bc3127219ee11"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a240962f38bcce10b343bc3127219ee11">&#9670;&nbsp;</a></span>blockThreadAction()</h2>
@@ -132,8 +135,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa4c3b2113fc697e4eb7ee6eeba5f58ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4c3b2113fc697e4eb7ee6eeba5f58ed">&#9670;&nbsp;</a></span>diagonalThreadAction()</h2>
+<a id="a3c3d064a9d884d9169d9d2ec0578b17a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c3d064a9d884d9169d9d2ec0578b17a">&#9670;&nbsp;</a></span>diagonalThreadAction()</h2>
 
 <div class="memitem">
 <div class="memproto">
