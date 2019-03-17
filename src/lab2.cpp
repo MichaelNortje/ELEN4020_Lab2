@@ -19,7 +19,8 @@ int main(int argc, char* argv[])
             verbose = true;
         }
     }
-    cout << "Timing algorithms..." << endl;
+    if (verbose) {printf("Maximum threads: %d\n", getNumThreadsEnvVar() );}
+    printf("Timing algorithms...\n");
 
     // Overall system time elapsed
 	clock_t start_time = clock();
@@ -40,21 +41,20 @@ int main(int argc, char* argv[])
 	output_file << setw(width) << left << "PThreads:Block";
 	output_file << endl;
     
+    // MT algorithms to time:
     vector<function<void (Matrix)>> vector_of_transpose_functions;     // vector of pointers to functions
-
     vector_of_transpose_functions.push_back(transposeMatrixSerial);
     vector_of_transpose_functions.push_back(transposeMatrixSimpleOpenMP);
     vector_of_transpose_functions.push_back(transposeMatrixDiagonalOpenMP);
     vector_of_transpose_functions.push_back(transposeMatrixBlockOpenMP);
-    // vector_of_transpose_functions.push_back(transposeMatrixDiagonalPThread);
+    vector_of_transpose_functions.push_back(transposeMatrixDiagonalPThread);
     // vector_of_transpose_functions.push_back(transposeMatrixBlockPThread);
 
+    // Matrices to use for timing
     vector<int> sizes = {2, 4, 8, 16, 32, 64, 128, 512, 1024, 2048, 4096, 8196, 16348};
     // vector<int> sizes = {128, 1024, 2048, 4096};
-    // vector<int> sizes = {2, 4, 6, 8, 10};
-    // vector<int> sizes = {8};
-
-    
+    // vector<int> sizes = {2, 4, 6, 8};
+    // vector<int> sizes = {4};
     
     for (auto& N : sizes)
     {
@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
         A.randomizeValues();
         string validationFile = "data.txt";
         writeMatrixToFile(validationFile, A);
-        
+
         Matrix B(N);
         B = readMatrixfromFile(validationFile);
 

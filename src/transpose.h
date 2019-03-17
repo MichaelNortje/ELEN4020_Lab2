@@ -3,8 +3,9 @@
 /// \file
 /// \brief The in-place matrix transposition algorithms
 
+#include <omp.h>
+#include <pthread.h>
 #include "utilities.h"
-#include "omp.h"
 
 using namespace std;
 
@@ -26,6 +27,9 @@ void transposeMatrixDiagonalOpenMP(Matrix A);
 //  with a thread per "block"
 /// \param The matrix to transpose
 void transposeMatrixBlockOpenMP(Matrix A);
+
+/// \brief PThreaded matrix transpose function
+void *transposeMatrixThread(void *arg);
 
 /// \brief Transposes a matrix, using PThreaded algorithm which swaps row/columns along diagonal
 /// \param The matrix to transpose

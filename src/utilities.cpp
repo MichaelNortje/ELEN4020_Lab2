@@ -73,3 +73,16 @@ bool matricesAreEqual(Matrix A, Matrix B)
     }
     return 1;
 }
+
+string getEnvironmentVar( string const& env_val )
+{
+    char* val = getenv( env_val.c_str() );
+    return val == NULL ? string("") : string(val);
+}
+
+int getNumThreadsEnvVar()
+{
+    int num_threads_default = 8;
+    string const val = "OMP_NUM_THREADS";
+    return getEnvironmentVar(val) == "" ? num_threads_default : stoi(getEnvironmentVar(val));
+}

@@ -34,4 +34,10 @@ Matrix readMatrixfromFile(string fileName);
 /// \param The second matrix to compare with
 bool matricesAreEqual(Matrix A, Matrix B);
 
+/// \brief Returns an Environmental Variable from
+string getEnvironmentVar(string const& env_val);
+
+/// \brief Returns the number of threads from OP_NUM_THREADS (if empty, returns 8)
+int getNumThreadsEnvVar();
+
 #endif

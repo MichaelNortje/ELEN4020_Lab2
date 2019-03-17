@@ -1,5 +1,10 @@
 #include "transpose.h"
 
+struct matrix_args{
+         Matrix *matrix;
+         int row;
+};
+
 void transposeMatrixSerial(Matrix A)
 {
     auto N = A.size();
@@ -60,9 +65,40 @@ void transposeMatrixBlockOpenMP(Matrix A)
     }
 }
 
+void *transposeMatrixThread(void *args)
+{
+    matrix_args *values = (matrix_args *) args;
+    int i = values->row;
+    for (auto j = i + 1; j < values->matrix->size(); j++) {
+        if (i!=j) {
+            values->matrix->swap(i, j);
+        }
+    }
+    free(values);
+    pthread_exit(0);
+}
+
 void transposeMatrixDiagonalPThread(Matrix A)
 {
-    auto N = A.size();
+    auto num_threads = getNumThreadsEnvVar();   // get Max threads for fairness
+    pthread_t tid[num_threads];                 // The thread IDs
+    pthread_attr_t attr;                        // Thread attributes
+    pthread_attr_init(&attr);                   // initialise default attributes
+    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE); // make joinable
+    for(auto t = 0; t < num_threads; t++){
+            matrix_args *values = (matrix_args*)malloc(sizeof(matrix_args));
+            values->matrix = &A;
+            values->row = t;
+            pthread_create( &tid[t],
+                            &attr,
+                            transposeMatrixThread,
+                            (void*)values); 
+    }
+    pthread_attr_destroy(&attr);                // remove attribute variable
+    for(auto t = 0; t < num_threads; t++){      // wait for all threads to complete
+        pthread_join(tid[t], NULL);
+    }
+    
 }
 
 void transposeMatrixBlockPThread(Matrix A)
