@@ -17,10 +17,10 @@ int main(int argc, char* argv[])
     auto long_timing = false;
     if (argc > 1) {
         for(auto i = 0; i < argc; i++){
-            if (string(argv[i]) == "-v" || "--verbose") {
+            if (string(argv[i]) == "-v" || string(argv[i]) == "--verbose") {
                 verbose = true;
             }
-            if (string(argv[i]) == "-l" || "--long") {
+            if (string(argv[i]) == "-l" || string(argv[i]) == "--long") {
                 long_timing = true;
             }
         }
@@ -57,20 +57,21 @@ int main(int argc, char* argv[])
     vector_of_transpose_functions.push_back(transposeMatrixBlockPThread);
 
     // Matrices to use for timing
+    // (N must be a power of two, and larger than the number of threads in OMP_NUM_THREADS)
     vector<int> sizes = {128, 1024, 2048, 4096};
     if (long_timing){
         sizes.clear();
-        sizes = {32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768};
+        sizes = {64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768};
     }
-    cout << sizes.size() << endl;
 
     for (auto& N : sizes)
     {
+        // N must be a power of two
+        assert(isPowerOfTwo(N));                                        
         Matrix A(N);
         A.randomizeValues();
         string validationFile = "data.txt";
         writeMatrixToFile(validationFile, A);
-// if (A.size()<=16)print2d(A);
         Matrix B(N);
         B = readMatrixfromFile(validationFile);
 

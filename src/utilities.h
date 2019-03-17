@@ -12,6 +12,11 @@
 
 using namespace std;
 
+
+/// \brief Checks if a value is a power of two
+/// \param Value to check (unsigned 32-bit integer)
+bool isPowerOfTwo(uint32_t x);
+
 /// \brief Prints an NxM matrix
 /// \param The matrix to print
 void print2d(Matrix A);

@@ -3,8 +3,11 @@
 /// \file
 /// \brief Various output/validation methods for confirming transposition (Implementation)
 
+bool isPowerOfTwo(uint32_t x)
+{
+    return x!=0 && (x & (x - 1)) == 0;
+}
 
-/// \brief Prints an NxN matrix
 void print2d(Matrix A){
     const auto N = A.size();
     cout << N << "x" << N << endl;
@@ -16,7 +19,6 @@ void print2d(Matrix A){
     }
 }
 
-/// \brief Write an NxM matrix to file
 void writeMatrixToFile(string fileName, Matrix A)
 {
     ofstream outputFile(fileName, ios::out);
@@ -34,7 +36,6 @@ void writeMatrixToFile(string fileName, Matrix A)
     outputFile.close();
 }
 
-/// \brief Read an NxM matrix from file
 Matrix readMatrixfromFile(string fileName)
 {
     ifstream inputFile(fileName, ios::in);
@@ -57,7 +58,6 @@ Matrix readMatrixfromFile(string fileName)
     return A;
 }
 
-/// \brief Compare two matrices
 bool matricesAreEqual(Matrix A, Matrix B)
 {    
     const auto N = A.size();

@@ -24,7 +24,7 @@ void transposeMatrixSerial(Matrix A)
 void transposeMatrixSimpleOpenMP(Matrix A)
 { 
     auto N = A.size();
-    #pragma omp parallel for // collapse(2)
+    #pragma omp parallel for
     for (auto i = 0; i < N; i++) {
         for (auto j = 0; j < i; j++) {
             if (i!=j) {
@@ -90,7 +90,9 @@ void *diagonalThreadAction(void *args)
 void transposeMatrixDiagonalPThread(Matrix A)
 {
     auto N = A.size();
-    auto num_threads = getNumThreadsEnvVar();   // get Max threads for fairness
+    auto num_threads = getNumThreadsEnvVar();   // get Max threads for fairness (vs OpenMP)
+    if (num_threads%2!=0){num_threads=8;}
+    if (num_threads>=N){num_threads=N;};        // avoid accidentally repeating work
     auto chunk = floor(N/num_threads);          // number of chunks for each thread to do
     pthread_t tid[num_threads];                 // The thread IDs
     pthread_attr_t attr;                        // Thread attributes
@@ -120,7 +122,6 @@ void *blockThreadAction(void *args)
 {
     matrix_args *values = (matrix_args *) args;
     Matrix *A = values->matrix;
-    // auto N = A->size();
     auto row = values->row_start;
     auto finish = values->row_end;
     auto stride = 2;
@@ -148,7 +149,9 @@ void *blockThreadAction(void *args)
 void transposeMatrixBlockPThread(Matrix A)
 {
     auto N = A.size();
-    auto num_threads = getNumThreadsEnvVar();   // get Max threads for fairness
+    auto num_threads = getNumThreadsEnvVar();   // get Max threads for fairness (vs OpenMP)
+    if (num_threads%2!=0){num_threads=8;}
+    if (num_threads>=N){num_threads=N;};        // avoid accidentally repeating work
     auto chunk = floor(N/num_threads);          // number of chunks for each thread to do
     pthread_t tid[num_threads];                 // The thread IDs
     pthread_attr_t attr;                        // Thread attributes
