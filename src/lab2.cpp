@@ -14,9 +14,15 @@ using namespace std::chrono;
 int main(int argc, char* argv[])
 {
     auto verbose = false;
+    auto long_timing = false;
     if (argc > 1) {
-        if (std::string(argv[1]) == "-v") {
-            verbose = true;
+        for(auto i = 0; i < argc; i++){
+            if (string(argv[i]) == "-v" || "--verbose") {
+                verbose = true;
+            }
+            if (string(argv[i]) == "-l" || "--long") {
+                long_timing = true;
+            }
         }
     }
     if (verbose) {printf("Maximum threads: %d\n", getNumThreadsEnvVar() );}
@@ -51,11 +57,13 @@ int main(int argc, char* argv[])
     vector_of_transpose_functions.push_back(transposeMatrixBlockPThread);
 
     // Matrices to use for timing
-    // vector<int> sizes = {2, 4, 8, 16, 32, 64, 128, 512, 1024, 2048, 4096, 8196, 16348};
     vector<int> sizes = {128, 1024, 2048, 4096};
-    // vector<int> sizes = {2, 4, 6, 8};
-    // vector<int> sizes = {8};
-    
+    if (long_timing){
+        sizes.clear();
+        sizes = {32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768};
+    }
+    cout << sizes.size() << endl;
+
     for (auto& N : sizes)
     {
         Matrix A(N);
