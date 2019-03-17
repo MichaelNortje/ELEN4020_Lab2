@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['randomizevalues',['randomizeValues',['../class_matrix.html#a88a20dc499081a96d11ce633b42b51eb',1,'Matrix']]],
-  ['readmatrixfromfile',['readMatrixfromFile',['../utilities_8cpp.html#a5d4d2e1aca9cbe74b6835b77474c9908',1,'readMatrixfromFile(string fileName):&#160;utilities.cpp'],['../utilities_8h.html#a5d4d2e1aca9cbe74b6835b77474c9908',1,'readMatrixfromFile(string fileName):&#160;utilities.cpp']]]
+  ['print2d',['print2d',['../utilities_8cpp.html#ae3516cacceadc6f8133a604d89d1b7c0',1,'print2d(Matrix A):&#160;utilities.cpp'],['../utilities_8h.html#ae3516cacceadc6f8133a604d89d1b7c0',1,'print2d(Matrix A):&#160;utilities.cpp']]]
 ];
