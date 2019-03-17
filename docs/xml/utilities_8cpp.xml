@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="utilities_8cpp" kind="file" language="C++">
+    <compoundname>utilities.cpp</compoundname>
+    <includes refid="utilities_8h" local="yes">utilities.h</includes>
+    <includes refid="_matrix_8h" local="yes">Matrix.h</includes>
+    <incdepgraph>
+      <node id="46">
+        <label>iomanip</label>
+      </node>
+      <node id="44">
+        <label>utilities.h</label>
+        <link refid="utilities_8h_source"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>fstream</label>
+      </node>
+      <node id="49">
+        <label>vector</label>
+      </node>
+      <node id="45">
+        <label>iostream</label>
+      </node>
+      <node id="50">
+        <label>Matrix.h</label>
+        <link refid="_matrix_8h_source"/>
+        <childnode refid="51" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>src/utilities.cpp</label>
+        <link refid="utilities_8cpp"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>stdio.h</label>
+      </node>
+      <node id="51">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="utilities_8cpp_1ae3516cacceadc6f8133a604d89d1b7c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void print2d</definition>
+        <argsstring>(Matrix A)</argsstring>
+        <name>print2d</name>
+        <param>
+          <type><ref refid="class_matrix" kindref="compound">Matrix</ref></type>
+          <declname>A</declname>
+        </param>
+        <briefdescription>
+<para>Prints an NxN matrix. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Prints an NxM matrix. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/utilities.cpp" line="5" column="1" bodyfile="src/utilities.cpp" bodystart="5" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="utilities_8cpp_1a5c2f3af52342f306811aec819d0a9066" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void writeMatrixToFile</definition>
+        <argsstring>(string fileName, Matrix A)</argsstring>
+        <name>writeMatrixToFile</name>
+        <param>
+          <type>string</type>
+          <declname>fileName</declname>
+        </param>
+        <param>
+          <type><ref refid="class_matrix" kindref="compound">Matrix</ref></type>
+          <declname>A</declname>
+        </param>
+        <briefdescription>
+<para>Write an NxM matrix to file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Caches a matrix to disk. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/utilities.cpp" line="19" column="1" bodyfile="src/utilities.cpp" bodystart="19" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="utilities_8cpp_1a5d4d2e1aca9cbe74b6835b77474c9908" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_matrix" kindref="compound">Matrix</ref></type>
+        <definition>Matrix readMatrixfromFile</definition>
+        <argsstring>(string fileName)</argsstring>
+        <name>readMatrixfromFile</name>
+        <param>
+          <type>string</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+<para>Read an NxM matrix from file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads a matrix into memory from disk. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/utilities.cpp" line="40" column="1" bodyfile="src/utilities.cpp" bodystart="40" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="utilities_8cpp_1a8579d4479020051ea68be3fc5370a0f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool matricesAreEqual</definition>
+        <argsstring>(Matrix A, Matrix B)</argsstring>
+        <name>matricesAreEqual</name>
+        <param>
+          <type><ref refid="class_matrix" kindref="compound">Matrix</ref></type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type><ref refid="class_matrix" kindref="compound">Matrix</ref></type>
+          <declname>B</declname>
+        </param>
+        <briefdescription>
+<para>Compare two matrices. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Compares two matrices to check if all elements are the same. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/utilities.cpp" line="66" column="1" bodyfile="src/utilities.cpp" bodystart="66" bodyend="88"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/utilities.cpp"/>
+  </compounddef>
+</doxygen>

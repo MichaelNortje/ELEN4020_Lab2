@@ -1,7 +1,7 @@
 #ifndef TRANSPOSE_H
 #define TRANSPOSE_H
 /// \file
-/// \brief The in-place matrix transposition algorithms
+/// \brief The in-place matrix transposition algorithms (Definitions)
 
 #include <omp.h>
 #include <pthread.h>

@@ -1,0 +1,301 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="class_matrix" kind="class" language="C++" prot="public">
+    <compoundname>Matrix</compoundname>
+    <includes refid="_matrix_8h" local="no">Matrix.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_matrix_1a261923413b8b0dda89f5930190e2ef8d" prot="private" static="no" mutable="no">
+        <type>uint32_t *</type>
+        <definition>uint32_t* Matrix::array</definition>
+        <argsstring></argsstring>
+        <name>array</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Matrix.h" line="13" column="1" bodyfile="src/Matrix.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_matrix_1ad4320bd2dc03fd11887d3ba350c6c8ef" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Matrix::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Matrix.h" line="14" column="1" bodyfile="src/Matrix.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_matrix_1aa9d5b60eef1b5eed3aa3ceb95f026e2c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Matrix::Matrix</definition>
+        <argsstring>(int N)</argsstring>
+        <name>Matrix</name>
+        <param>
+          <type>int</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for a <ref refid="class_matrix" kindref="compound">Matrix</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>N</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of a single dimension </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of a single dimension </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>array</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The array will be [width x width]*32-bits size, in a contiguous block of memory </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Matrix.h" line="22" column="1" bodyfile="src/Matrix.h" bodystart="22" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_matrix_1a60c3672f483b116f2aed53d669862619" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Matrix::at</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>at</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>at The getter method, with 2d indexing of elements </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The row index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The column index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Matrix.h" line="28" column="1" bodyfile="src/Matrix.h" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_matrix_1a7e960a1c6e8f5aa90dddb18d9394890c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Matrix::size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>size Returns a single dimension of the square matrix </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Matrix.h" line="34" column="1" bodyfile="src/Matrix.h" bodystart="34" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_matrix_1aedf6d7aba0136c6bc37fdab4a4a7d613" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Matrix::set</definition>
+        <argsstring>(int x, int y, uint32_t val)</argsstring>
+        <name>set</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>set The setter method, with 2d indexing of elements </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The row index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The column index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>val</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unsigned 32-bit integer value inserted into the element </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Matrix.h" line="43" column="1" bodyfile="src/Matrix.h" bodystart="43" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_matrix_1a88a20dc499081a96d11ce633b42b51eb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Matrix::randomizeValues</definition>
+        <argsstring>()</argsstring>
+        <name>randomizeValues</name>
+        <briefdescription>
+<para>randomizeValues Sets each element in the matrix to a random 32-bit integer between 0 and the &apos;size&apos; value </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Matrix.h" line="50" column="1" bodyfile="src/Matrix.h" bodystart="50" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_matrix_1ab841a21fe00fc2dab4a4252d2daa1a28" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Matrix::swap</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>swap</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>swap Provides a standard in-place swap method, using a temporary value to swap the values at the indices in memory. When complete, A[x][y] &lt;=&gt; A[y][x] </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The row index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The column index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Matrix.h" line="63" column="1" bodyfile="src/Matrix.h" bodystart="63" bodyend="68"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_matrix_1a17c1b7c8f84a3d2c6d0623281a0ff0a3" prot="protected" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Matrix::_index</definition>
+        <argsstring>(int x, int y) const</argsstring>
+        <name>_index</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>_index Method of indexing the 1D array as a 2D matrix </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The row index </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The column index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/Matrix.h" line="74" column="1" bodyfile="src/Matrix.h" bodystart="74" bodyend="77"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="class_matrix" kindref="compound">Matrix</ref> class for a contiguous memory block. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The 2d square matrix is stored as a single contigous array, with getter and setter methods provided to allow 2d indexing </para>
+    </detaileddescription>
+    <location file="src/Matrix.h" line="12" column="1" bodyfile="src/Matrix.h" bodystart="11" bodyend="78"/>
+    <listofallmembers>
+      <member refid="class_matrix_1a17c1b7c8f84a3d2c6d0623281a0ff0a3" prot="protected" virt="non-virtual"><scope>Matrix</scope><name>_index</name></member>
+      <member refid="class_matrix_1a261923413b8b0dda89f5930190e2ef8d" prot="private" virt="non-virtual"><scope>Matrix</scope><name>array</name></member>
+      <member refid="class_matrix_1a60c3672f483b116f2aed53d669862619" prot="public" virt="non-virtual"><scope>Matrix</scope><name>at</name></member>
+      <member refid="class_matrix_1aa9d5b60eef1b5eed3aa3ceb95f026e2c" prot="public" virt="non-virtual"><scope>Matrix</scope><name>Matrix</name></member>
+      <member refid="class_matrix_1a88a20dc499081a96d11ce633b42b51eb" prot="public" virt="non-virtual"><scope>Matrix</scope><name>randomizeValues</name></member>
+      <member refid="class_matrix_1aedf6d7aba0136c6bc37fdab4a4a7d613" prot="public" virt="non-virtual"><scope>Matrix</scope><name>set</name></member>
+      <member refid="class_matrix_1a7e960a1c6e8f5aa90dddb18d9394890c" prot="public" virt="non-virtual"><scope>Matrix</scope><name>size</name></member>
+      <member refid="class_matrix_1ab841a21fe00fc2dab4a4252d2daa1a28" prot="public" virt="non-virtual"><scope>Matrix</scope><name>swap</name></member>
+      <member refid="class_matrix_1ad4320bd2dc03fd11887d3ba350c6c8ef" prot="private" virt="non-virtual"><scope>Matrix</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

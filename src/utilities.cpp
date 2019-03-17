@@ -1,5 +1,8 @@
 #include "utilities.h"
 #include "Matrix.h"
+/// \file
+/// \brief Various output/validation methods for confirming transposition (Implementation)
+
 
 /// \brief Prints an NxN matrix
 void print2d(Matrix A){
