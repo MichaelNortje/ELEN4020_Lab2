@@ -43,6 +43,7 @@ int main(int argc, char* argv[])
 	output_file << setw(width) << left << "OpenMP:Naive";
     output_file << setw(width) << left << "OpenMP:Diagonal";
 	output_file << setw(width) << left << "OpenMP:Block";
+    output_file << setw(width) << left << "PThreads:Naive";
     output_file << setw(width) << left << "PThreads:Diagonal";
 	output_file << setw(width) << left << "PThreads:Block";
 	output_file << endl;
@@ -50,9 +51,10 @@ int main(int argc, char* argv[])
     // MT algorithms to time:
     vector<function<void (Matrix)>> vector_of_transpose_functions;     // vector of pointers to functions
     vector_of_transpose_functions.push_back(transposeMatrixSerial);
-    vector_of_transpose_functions.push_back(transposeMatrixSimpleOpenMP);
+    vector_of_transpose_functions.push_back(transposeMatrixNaiveOpenMP);
     vector_of_transpose_functions.push_back(transposeMatrixDiagonalOpenMP);
     vector_of_transpose_functions.push_back(transposeMatrixBlockOpenMP);
+    vector_of_transpose_functions.push_back(transposeMatrixNaivePThread);
     vector_of_transpose_functions.push_back(transposeMatrixDiagonalPThread);
     vector_of_transpose_functions.push_back(transposeMatrixBlockPThread);
 

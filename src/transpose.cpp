@@ -21,7 +21,7 @@ void transposeMatrixSerial(Matrix A)
     }
 }
 
-void transposeMatrixSimpleOpenMP(Matrix A)
+void transposeMatrixNaiveOpenMP(Matrix A)
 { 
     auto N = A.size();
     #pragma omp parallel for
@@ -66,6 +66,55 @@ void transposeMatrixBlockOpenMP(Matrix A)
                 }
             }
         }
+    }
+}
+
+void *naiveThreadAction(void *args)
+{
+    matrix_args *values = (matrix_args *) args;
+    Matrix *A = values->matrix;
+    auto N = A->size();
+    auto i = values->row_start;
+    auto finish = values->row_end;
+    for (; i < finish; i++) {
+        for (auto j = 0; j < i; j++) {
+            if (i!=j) {
+                A->swap(i, j);
+            }
+        }
+    }
+    free(values);
+    pthread_exit(0);
+}
+
+void transposeMatrixNaivePThread(Matrix A)
+{
+    auto N = A.size();
+    auto num_threads = getNumThreadsEnvVar();   // get Max threads for fairness (vs OpenMP)
+    if (num_threads%2!=0){num_threads=8;}
+    if (num_threads>=N){num_threads=N;};        // avoid accidentally repeating work
+    auto chunk = floor(N/num_threads);          // number of chunks for each thread to do
+    pthread_t tid[num_threads];                 // The thread IDs
+    pthread_attr_t attr;                        // Thread attributes
+    pthread_attr_init(&attr);                   // initialise default attributes
+    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE); // make joinable
+    int start = 0;
+    int offset = 0;
+    for(auto t = 0; t < num_threads; t++){
+            matrix_args *values = (matrix_args*)malloc(sizeof(matrix_args));
+            values->matrix = &A;
+            start = offset;
+            offset = start + chunk;
+            values->row_start = start;
+            values->row_end = offset;
+            pthread_create( &tid[t],
+                            &attr,
+                            diagonalThreadAction,
+                            (void*)values); 
+    }
+    pthread_attr_destroy(&attr);                // remove attribute variable
+    for(auto t = 0; t < num_threads; t++){      // wait for all threads to complete
+        pthread_join(tid[t], NULL);
     }
 }
 

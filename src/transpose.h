@@ -14,9 +14,8 @@ using namespace std;
 void transposeMatrixSerial(Matrix A);
 
 /// \brief Transposes a matrix, using OpenMP Naive threaded algorithm
-/// \param N The number of row/columns
 /// \param The matrix to transpose
-void transposeMatrixSimpleOpenMP(Matrix A);
+void transposeMatrixNaiveOpenMP(Matrix A);
 
 /// \brief Transposes a matrix, using OpenMP threaded algorithm
 //  which swaps row/columns, with a thread per diagonal entry
@@ -27,6 +26,14 @@ void transposeMatrixDiagonalOpenMP(Matrix A);
 //  with a thread per "block"
 /// \param The matrix to transpose
 void transposeMatrixBlockOpenMP(Matrix A);
+
+/// \brief Per-thread niave matrix transpose function
+/// \brief A pointer to a struct containing the arguments for the function
+void *naiveThreadAction(void *args);
+
+/// \brief Transposes a matrix, using PThreaded naive threaded algorithm
+/// \param The matrix to transpose
+void transposeMatrixNaivePThread(Matrix A);
 
 /// \brief Per-thread diagonal matrix transpose function
 /// \brief A pointer to a struct containing the arguments for the function
