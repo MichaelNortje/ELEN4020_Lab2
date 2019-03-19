@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['transposematrixblockopenmp',['transposeMatrixBlockOpenMP',['../transpose_8cpp.html#a6089098b03cd2855e72536a77c5b574c',1,'transposeMatrixBlockOpenMP(Matrix A):&#160;transpose.cpp'],['../transpose_8h.html#a6089098b03cd2855e72536a77c5b574c',1,'transposeMatrixBlockOpenMP(Matrix A):&#160;transpose.cpp']]],
-  ['transposematrixblockpthread',['transposeMatrixBlockPThread',['../transpose_8cpp.html#a2eb51c5940867c227232858f91c36afe',1,'transposeMatrixBlockPThread(Matrix A):&#160;transpose.cpp'],['../transpose_8h.html#a2eb51c5940867c227232858f91c36afe',1,'transposeMatrixBlockPThread(Matrix A):&#160;transpose.cpp']]],
-  ['transposematrixdiagonalopenmp',['transposeMatrixDiagonalOpenMP',['../transpose_8cpp.html#a9b3f4bc7eaa5897f3fddc5af4e2e0eee',1,'transposeMatrixDiagonalOpenMP(Matrix A):&#160;transpose.cpp'],['../transpose_8h.html#a9b3f4bc7eaa5897f3fddc5af4e2e0eee',1,'transposeMatrixDiagonalOpenMP(Matrix A):&#160;transpose.cpp']]],
-  ['transposematrixdiagonalpthread',['transposeMatrixDiagonalPThread',['../transpose_8cpp.html#a646bac061d893acf838803e757504551',1,'transposeMatrixDiagonalPThread(Matrix A):&#160;transpose.cpp'],['../transpose_8h.html#a646bac061d893acf838803e757504551',1,'transposeMatrixDiagonalPThread(Matrix A):&#160;transpose.cpp']]],
-  ['transposematrixserial',['transposeMatrixSerial',['../transpose_8cpp.html#acff5e7e6d0150313ddce4df2f219d498',1,'transposeMatrixSerial(Matrix A):&#160;transpose.cpp'],['../transpose_8h.html#acff5e7e6d0150313ddce4df2f219d498',1,'transposeMatrixSerial(Matrix A):&#160;transpose.cpp']]],
-  ['transposematrixsimpleopenmp',['transposeMatrixSimpleOpenMP',['../transpose_8cpp.html#ac4e949a60cd419e20e803424b73cc858',1,'transposeMatrixSimpleOpenMP(Matrix A):&#160;transpose.cpp'],['../transpose_8h.html#ac4e949a60cd419e20e803424b73cc858',1,'transposeMatrixSimpleOpenMP(Matrix A):&#160;transpose.cpp']]]
+  ['set',['set',['../class_matrix.html#aedf6d7aba0136c6bc37fdab4a4a7d613',1,'Matrix']]],
+  ['size',['size',['../class_matrix.html#a7e960a1c6e8f5aa90dddb18d9394890c',1,'Matrix']]],
+  ['swap',['swap',['../class_matrix.html#ab841a21fe00fc2dab4a4252d2daa1a28',1,'Matrix']]]
 ];

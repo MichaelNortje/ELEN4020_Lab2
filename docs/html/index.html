@@ -72,14 +72,28 @@ $(function() {
  <em><b>Michael Nortje 1389486</b></em> <br />
  <b>Joshua Isserow 675720</b> <br />
 </p>
-<h2>Build and Run Instructions</h2>
-<p>The code requires the OpenMP and PThreads libraries, along with g++ to be installed. We suggest using <a href="https://cmake.org/">CMake</a> to build the executable. Download the <a href="https://cmake.org/download/">latest release</a>.</p>
-<p>Once CMake is installed, run the following from the location where the git repo was cloned to: </p><pre><code>$ mkdir build
+<p>Source repository: <em><a href="https://github.com/MichaelNortje/ELEN4020_Lab2.git">https://github.com/MichaelNortje/ELEN4020_Lab2.git</a><em> </p><h2>Build and Run Instructions</h2>
+<p></em></em></p>
+<p><em><em> The code requires the OpenMP and PThreads libraries, and the g++ compiler to be installed. We suggest using <a href="https://cmake.org/">CMake</a> to build the executable. Download the <a href="https://cmake.org/download/">latest release</a>, or install with a package manager.</em></em></p>
+<p><em><em>Once CMake is installed, run the following from the location where this git repo was cloned to: </p><pre><code>$ mkdir build
 $ cd build
 $ cmake ..
 $ make
-</code></pre><p>To run the compiled executable run the following command from within the build folder: </p><pre><code>./lab2 
-</code></pre><p> It will generate a file <em>timings.txt</em> with the results from the square matrix transpositions algorithms, for a range of [N_o x N_1] matrices, where N_o = N_1, and N_1 = [128, 1024, 2048, 4096]. </p>
+</code></pre><p></em></em></p>
+<p><em><em>To run the compiled executable run the following command from within the build folder: </p><pre><code>$ ./lab2
+</code></pre><p> It will generate a file <em>timings.txt</em> with the results from the square matrix transpositions algorithms, for a range of [N_0 x N_1] matrices, where N_0 = N_1 = [128, 1024, 2048, 4096].</em></em></p>
+<p><em><em><br />
+ Please make sure that your ENV variable OMP_NUM_THREADS is set to a sensible value (we suggest 8 for a 4-core machine with hyperthreading). You can check the value with </p><pre><code>$ echo $OMP\_NUM\_THREADS</code></pre><p> and set it with </p><pre><code>$ export $OMP\_NUM\_THREADS=8</code></pre><p></em></em></p>
+<p><em><em><br />
+ <em>Addtional commandline options:<em> </p><pre><code>$ ./lab2 [-v][--verbose] [-l][--long]
+</code></pre> <pre><code>    -v, &ndash; verbose  <br />
+
+            Output additional timing information <br />
+
+    -l, &ndash;long  <br />
+
+            Use longer timing sequences for N_0 = N_1 = [64, 128, 256, 512, ... , 8192, 16384, 32768]
+</code></pre><p> </em></em></em></em></p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
