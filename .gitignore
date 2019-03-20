@@ -119,6 +119,8 @@ _deps
 
 # End of https://www.gitignore.io/api/osx,c++,windows,visualstudiocode,cmake`
 
+research/*
+
 .vscode/*
 
 Doxyfile*

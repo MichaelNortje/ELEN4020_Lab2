@@ -22,7 +22,7 @@ To run the compiled executable run the following command from within the build f
 It will generate a file *timings.txt* with the results from the square matrix transpositions algorithms, for a range of [N_0 x N_1] matrices, where N_0 = N_1 = [128, 1024, 2048, 4096]. 
 
 ### Code documentation
-Doxygen documentation can be found under the **docs** folder, in the location where the git repo was cloned to. Use docs/index.html to access fully commented code listings along with function and class information.
+Doxygen documentation can be found under the **docs/html** folder, in the location where the git repo was cloned to. Use **docs/html/index.html** to access fully commented code listings along with function and class information.
 
 ### Additional Notes
 Please make sure that your ENV variable OMP\_NUM\_THREADS is set to a sensible value (we suggest 8 for a 4-core machine with hyperthreading). You can check the value with
