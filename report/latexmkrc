@@ -1,0 +1,3 @@
+$ENV{'TEXINPUTS'}='./tex//:' . $ENV{'TEXINPUTS'};
+$ENV{'TZ'}='Africa/Johannesburg';
+$ENV{'AUX_DIR'}='./build//:' . $ENV{'AUX_DIR'};

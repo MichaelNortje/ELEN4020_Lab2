@@ -1,0 +1,189 @@
+% Two images side-by-side (different heights/spacing)
+\begin{figure}[ht]
+    \centering
+    \begin{minipage}[b]{0.45\textwidth} \centering
+        \small{%
+        \includegraphics[width=0.9\linewidth]{example.eps}%
+        \vspace{0.15cm}}
+        \small\caption{Image caption 1}
+        \label{fig:fig1}
+    \end{minipage}
+        \begin{minipage}[b]{0.45\textwidth} \centering
+        \small{%
+        \includegraphics[width=0.9\linewidth]{example.eps}}
+        \small\caption{Image caption 2}
+        \label{fig:fig2}
+	\end{minipage}
+	\vspace*{-10pt}
+\end{figure}%
+\vspace{10pt}
+
+% Image next to stacked images
+\begin{figure}[ht]
+    \begin{minipage}[b]{1.05\textwidth} \centering
+    \hspace*{-40pt}
+	\vspace*{-0.3cm} \centering
+        \begin{minipage}[b]{0.69\textwidth} \centering
+            \hspace*{-20pt}
+            \small{%
+            \includegraphics[width=0.92\linewidth]{example.eps}}
+            \small\caption{Caption to the first image}
+            \label{fig:fig3} 
+        \end{minipage}
+        \hspace*{-20pt}
+        \begin{minipage}[b]{0.29\textwidth} \centering
+            \hspace*{-20pt}
+            \small{%
+            \includegraphics[width=1\linewidth]{example.eps}}
+            \small\caption{Caption 1}
+            \label{fig:fig4}
+            \vspace{8pt}
+            % Figure below
+            \hspace*{-20pt}
+            \small{%
+            \includegraphics[width=1\linewidth]{example.eps}}
+            \small\caption{Caption 2}
+            \label{fig:fig5} 
+        \end{minipage}
+    \end{minipage}
+    \vspace{5pt}
+\end{figure}%
+\vspace{10pt}
+
+
+% A wide table
+\begin{table*}[h!] \centering
+    \vspace*{-10pt}%
+    \hspace*{-5pt}%
+    \caption{An example table \emph{(with emphasis)}}
+    \label{tab:table1}
+    \small{%
+    \begin{tabular}{@{}rrrrrrrrrr@{}}\toprule
+        \textbf{Time} & \textbf{Current SC} & \textbf{Current LED} & \textbf{Voltage SC} & \textbf{Voltage LED} & \textbf{Power in} & \textbf{Power out} & \textbf{Energy in} & \textbf{Energy out}  & \textbf{Efficiency} \\ \midrule
+        \textbf{Start} 		& 0.010 A &	0.023 A & 2.490 V &	2.954 V & 0.025 W &	0.067 W & <1 mWh & <1 mWh & 2.7\% \\ \hdashline
+        \textbf{30 min}		& 0.039 A &	0.023 A & 2.088 V & 2.953 V & 0.086 W & 0.068 W & 0.043 Wh & 0.034 Wh & 78.1\% \\ \hdashline
+        \textbf{50 min}		& 0.092 A & 0.019 A & 0.335 V & 2.834 V & 0.110 W &	0.053 W & 0.092 Wh & 0.045 Wh & 56.8\% \\
+        \bottomrule
+    \end{tabular}}
+\end{table*}%
+\vspace{10pt}
+
+% Page 2
+% Single Image
+\begin{figure}[ht] \centering
+    \vspace*{-5pt}
+    \small{\includegraphics[width=0.65\linewidth]{example.eps}}
+    \small\caption{Caption}
+    \label{fig:fig} 
+\end{figure}%
+
+% Grid of four images and a table
+\begin{figure}[ht]  \centering
+        \hspace{-20pt}
+        \begin{minipage}{0.64\textwidth} \centering
+            \begin{subfigure}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=0.9\linewidth]{example.eps} 
+                \small\caption{Caption A} 
+                \label{fig:fig6} 
+                \vspace{4ex}
+            \end{subfigure}%% 
+            \begin{subfigure}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=0.9\linewidth]{example.eps} 
+                \small\caption{Caption B} 
+                \label{fig:fig7} 
+                \vspace{4ex}
+            \end{subfigure}
+            \vspace{10pt}
+            \begin{subfigure}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=0.9\linewidth]{example.eps} 
+                \small\caption{Caption C} 
+                \label{fig:fig8} 
+            \end{subfigure}%%
+            \begin{subfigure}[b]{0.5\linewidth}
+                \centering
+                \includegraphics[width=0.9\linewidth]{example.eps} 
+                \small\caption{Caption D} 
+                \label{fig:fig9} 
+            \end{subfigure}
+            \small\caption{Caption Main}
+            \label{fig:fig_all}
+        \end{minipage}
+        \hspace{2.5pt}
+        \begin{minipage}{0.3\textwidth}
+            \renewcommand\tabcolsep{2pt} %
+            \def\arraystretch{1.15}%
+       		\centering
+            \vspace{-15pt}
+            \label{tab:table2}
+            \small{\captionof{table}{A table caption}}
+            \footnotesize{%
+            \begin{tabular}{@{}lrcrr@{}}\toprule
+                \multicolumn{2}{c}{\textbf{Component}} & \textbf{No.} 	& \textbf{Price}	& \textbf{Total} \\ \midrule 
+                \multicolumn{2}{@{}l}{Supercapacitor}%
+                                                    & 1 	& 217.00 	& 217.00	\\ \hdashline
+                \multicolumn{2}{@{}l}{Veroboard} 	& 1 	& 28.48 	& 28.48		\\ \hdashline
+                \multicolumn{2}{@{}l}{Resistor}  	& 16 	& 0.25 		& 4.00		\\ \hdashline
+                \multicolumn{2}{@{}l}{\SI{0.047}{\ohm} Power resistor}%
+                                                    & 1 	& 2.85 		& 2.85		\\ \hdashline
+                \multicolumn{2}{@{}l}{Switch} 		& 2 	& 2.34 		& 4.68  	\\ \hdashline
+                \multicolumn{2}{@{}l}{MOSFET driver}%
+                                                    & 1 	& 20.84 	& 20.84 	\\ \hdashline
+                \multicolumn{2}{@{}l}{Housing} 		& 1 	& 20.00 	& 20.00		\\ \hdashline
+                \multirow{2}{*}{\textit{MCUs}}%
+                    & ATmega328 					& 1 	& 61.24   	& \multirow{2}{*}{108.91}  \\
+                    & ATtiny85  					& 1 	& 47.67		&  			\\ \hdashline
+                \multirow{2}{*}{\textit{MOSFETs}}%
+                    & BUK456 						& 2 	& 40.68  	& \multirow{2}{*}{83.96}  \\
+                    & BSS123LT1 					& 1 	& 2.60 		&  			\\ \hdashline
+                \multirow{3}{*}{\textit{LEDs}}%
+                    & Red 							& 2 	& 0.45  	& \multirow{3}{*}{4.32}  \\
+                    & Yellow  						& 1 	& 0.60 		&  			\\
+                    & Ultra-bright					& 1 	& 2.82 		&  			\\ \hdashline
+                \multirow{2}{*}{\textit{Inductors}}%
+                    & \SI{50}{\micro\henry}			& 1 	& 0.36  	& \multirow{2}{*}{1.76}  \\
+                    & \SI{100}{\micro\henry}		& 1 	& 1.40 		&  			\\ \hdashline
+                \multirow{2}{*}{\textit{Capacitors}}%
+                    & Ceramic 						& 6 	& 0.22  	& \multirow{2}{*}{2.19}  \\		
+                    & Electrolytic  				& 1 	& 0.87 		&  			\\ \hdashline
+                \multirow{2}{*}{\textit{Diodes}}%
+                    & Zener 						& 4 	& 0.22  	& \multirow{2}{*}{2.27}  \\		
+                    & Schottky  					& 1 	& 1.39 		&  			\\ \midrule
+                \multicolumn{2}{@{}l}{\textbf{Total}}%
+                                                    &		&			& \textbf{R501.26} 	\\ \bottomrule	
+            \end{tabular}}
+            \vspace{3pt}
+        \end{minipage}
+\end{figure}%
+
+% Grid of four images
+\begin{figure}[ht]  \centering
+    \begin{minipage}{1\textwidth} \centering
+        \begin{subfigure}[b]{0.5\linewidth} \centering
+            \includegraphics[width=0.9\linewidth]{example.eps} 
+            \small\caption{Caption A} 
+            \label{fig:fig10}
+            \vspace{4ex}
+        \end{subfigure}%% 
+        \begin{subfigure}[b]{0.5\linewidth} \centering
+            \includegraphics[width=0.9\linewidth]{example.eps} 
+            \small\caption{Caption B} 
+            \label{fig:fig11}
+            \vspace{4ex}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.5\linewidth} \centering
+            \includegraphics[width=0.9\linewidth]{example.eps} 
+            \small\caption{Caption C} 
+            \label{fig:fig12} 
+        \end{subfigure}%%
+        \begin{subfigure}[b]{0.5\linewidth} \centering
+            \includegraphics[width=0.9\linewidth]{example.eps} 
+            \small\caption{Caption D} 
+            \label{fig:fig13} 
+        \end{subfigure} 
+        \small\caption{Main Caption}
+        \label{fig:fig_grid} 
+    \end{minipage}
+\end{figure}%

@@ -1,0 +1,110 @@
+%-------------------------------------------------------------------------------------
+%	CUSTOM COMMANDS
+%-------------------------------------------------------------------------------------
+% Paths
+\graphicspath{{./images/}{./code/}}
+
+%\setlength\bibitemsep{0.5\baselineskip}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{light-blue}{rgb}{0.086,0.208,0.47}
+
+\SetTracking[spacing={25*,166,}]{encoding=*,shape=sc}{50}
+%\sisetup{detect-weight=true, detect-family=true}
+
+\renewcommand{\lstlistingname}{CODE}
+% \let\ph\mlplaceholder % shorter macro
+% \lstMakeShortInline"
+
+% nice section glyph
+\crefname{section}{§}{§§}
+\Crefname{section}{§}{§§}
+
+\captionsetup[listing]{position=top}
+
+\lstset{
+    language                =   C++,
+    frame                   =   lines,
+    basicstyle              =   \scriptsize\sffamily,
+    showstringspaces        =   false,
+    keywords                = {for, if, while, else, elseif, end, break, return, case, switch, function. class},
+    % escapechar            =   ",
+    % basicstyle            = \small\sffamily,
+    xleftmargin             = 25pt,
+    xrightmargin            = 25pt,
+    tabsize                 = 4,                    % 5 spaces per tab
+    columns                 = flexible,
+    numbers                 = left,                 % Line numbers on left
+    firstnumber             = 1,
+    numberstyle             = \tiny\color{gray},    % Line numbers are blue
+    stepnumber              = 1,                    % Line numbers go in steps of 5
+    commentstyle            = \usefont{T1}{pcr}{m}{sl}\color{codegray}\small,
+    rulecolor               = \color{black},
+    frame                   = % rltb,
+}
+
+
+
+\newcommand{\comment}[1]
+\makeatletter
+\def\vhrulefill{\leavevmode\leaders\hrule height 0.7ex  depth \dimexpr0.4pt-0.66ex\hfill\kern0pt}
+\makeatother
+
+\newcommand{\inlinemaketitle}{{\let\newpage\relax\maketitle}}
+
+% dashed line
+\setlength\dashlinedash{0.2pt}
+\setlength\dashlinegap{1.5pt}
+\setlength\arrayrulewidth{0.3pt}
+
+%Spacing between floats
+% \setlength{\textfloatsep}{10pt}
+
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \begin{center}%
+    {\LARGE \@title \par}%
+    \vskip 1.0em%
+    {\small
+      \lineskip .2em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+    \vskip 1.5em%   
+  \end{center}%
+  \par
+  \vskip 1em}
+    \thispagestyle{empty}%
+\makeatother
+
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
+% Figures and tables in multicol environment
+\makeatletter
+\newenvironment{Table}
+  {\def\@captype{table}}
+  {}
+
+\newenvironment{Figure}
+  {\def\@captype{figure}}
+  {}
+\makeatother
+
+%--------------------------------------------
+% Fix numeration in subsection titles
+%-------------------------------------------
+\makeatletter
+\renewcommand{\@IEEEsectpunct}{\ \,}% Modified from {:\ \,}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.{subsubsection}}
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.{subsubsection}}
+
+% \newcommand\dboxed[1]{\dbox{\ensuremath{#1}}}
+\DeclareCaptionFont{tiny}{\tiny}
+\makeatother

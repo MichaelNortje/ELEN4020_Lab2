@@ -1,0 +1,110 @@
+%-------------------------------------------------------------------------------------
+%	APPENDICES
+%-------------------------------------------------------------------------------------
+\newgeometry{left=1.2cm,right=1.2cm,top=1cm,bottom=1.3cm}
+\onecolumn
+\renewcommand{\thefigure}{A\arabic{figure}}
+\renewcommand{\thetable}{A\arabic{table}}
+\renewcommand{\thelstlisting}{A\arabic{lstlisting}}
+% \renewcommand\thesection{\c{section}}
+% \renewcommand{\thesubsection}{\Alph{subsection}}
+
+\setcounter{figure}{0}
+\begin{appendices}
+\section{} \label{app:I}
+% \rule{0.975\textwidth}{.4pt}
+
+\vspace{20pt}
+
+\begin{table}[ht] \centering
+    \renewcommand\tabcolsep{8pt} %
+    \def\arraystretch{1.35}%
+    \caption{Measured algorithm execution CPU time [$\mu s$]}
+    \label{tab:timing}
+    \small{%
+    \hspace{-10pt}
+    \vspace{5pt} \hfill
+    \begin{tabular}{@{}crrrrrrr@{}} \toprule
+        \multicolumn{1}{@{}c}{\multirow{3}{*}{$\mathbf{N_{o} = N_{1}}$}} & %
+        \multicolumn{1}{@{}c}{\multirow{3}{*}{\textbf{Serial}}} & %
+        \multicolumn{3}{@{}c}{\textbf{PThread}} & %
+        \multicolumn{3}{@{}c}{\textbf{OpenMP}}  \\ 
+        %
+        & & \multicolumn{3}{@{}c}{$\overbrace{\hspace{160pt}}$} & %
+        \multicolumn{3}{@{}c}{$\overbrace{\hspace{160pt}}$} \\
+        & & \multicolumn{1}{@{}c}{Na\"ive} & %
+        \multicolumn{1}{@{}c}{Diagonal} & %
+        \multicolumn{1}{@{}c}{Block} & %
+        \multicolumn{1}{@{}c}{Na\"ive} & %
+        \multicolumn{1}{@{}c}{Diagonal} & %
+        \multicolumn{1}{@{}c}{Block} \\ \midrule
+        %  128	&	471		&	298		&	375		&	272		&	287		&	327		\\
+        % 1024	&	24041	&	7112	&	7234	&	7292	&	6688	&	5882	\\
+        % 2048	&	132453	&	30707	&	35785	&	29095	&	35093	&	25846	\\
+        % 4096	&	685683	&	158552	&	156639	&	128497	&	171226	&	124326	\\ \bottomrule
+        %
+        % micro seconds below
+	64 & $5.8000\times 10^1$ & $8.8900\times 10^2$ & $1.1000\times 10^2$ & $8.8000\times 10^1$ & $2.6700\times 10^2$ & $1.8900\times 10^2$ & $2.0800\times 10^2 $\\
+    128 & $2.3800\times 10^2$ & $1.9400\times 10^2$ & $2.6400\times 10^2$ & $1.7000\times 10^2$ & $2.4900\times 10^2$ & $2.2400\times 10^2$ & $2.7100\times 10^2$ \\
+    256 & $9.5200\times 10^2$ & $7.0500\times 10^2$ & $6.2100\times 10^2$ & $4.8800\times 10^2$ & $8.4400\times 10^2$ & $6.6600\times 10^2$ & $7.2700\times 10^2$ \\
+    512 & $4.8150\times 10^3$ & $2.3750\times 10^3$ & $2.3780\times 10^3$ & $1.6690\times 10^3$ & $1.8000\times 10^3$ & $2.3150\times 10^3$ & $2.7880\times 10^3$ \\
+    1024 & $2.4807\times 10^4$ & $8.7550\times 10^3$ & $7.4380\times 10^3$ & $5.9310\times 10^3$ & $6.3070\times 10^3$ & $9.5170\times 10^3$ & $7.5420\times 10^3$ \\
+    2048 & $1.3589\times 10^5$ & $3.5944\times 10^4$ & $3.8697\times 10^4$ & $3.0029\times 10^4$ & $4.0392\times 10^4$ & $3.3908\times 10^4$ & $2.4795\times 10^4$ \\
+    4096 & $7.1511\times 10^5$ & $1.7276\times 10^5$ & $1.6319\times 10^5$ & $1.3432\times 10^5$ & $1.6092\times 10^5$ & $1.6682\times 10^5$ & $1.3212\times 10^5$ \\
+    8192 & $3.0509\times 10^6$ & $7.6561\times 10^5$ & $7.5487\times 10^5$ & $6.5091\times 10^5$ & $7.6296\times 10^5$ & $7.5997\times 10^5$ & $5.5517\times 10^5$ \\
+    16384 & $1.2585\times 10^7$ & $3.3533\times 10^6$ & $3.2589\times 10^6$ & $2.6138\times 10^6$ & $3.2283\times 10^6$ & $3.2886\times 10^6$ & $2.2703\times 10^6$ \\
+    32768 & $9.0450\times 10^7$ & $1.8300\times 10^7$ & $1.8769\times 10^7$ & $1.2127\times 10^7$ & $1.7252\times 10^7$ & $1.7936\times 10^7$ & $1.1369\times 10^7$ \\ \bottomrule
+% %
+% % milli seconds below
+%   64	& $5.8000\times 10^{-2}$ & $8.8900\times 10^{-1}$ & $1.1000\times 10^{-1}$ & $8.8000\times 10^{-2}$ & $2.6700\times 10^{-1}$ & $1.8900\times 10^-{01}$ & $2.0800\times 10^{-1}$ \\
+%   128	& $2.3800\times 10^{-1}$ & $1.9400\times 10^{-1}$ & $2.6400\times 10^{-1}$ & $1.7000\times 10^{-1}$ & $2.4900\times 10^{-1}$ & $2.2400\times 10^-{01}$ & $2.7100\times 10^{-1}$ \\
+%   256	& $9.5200\times 10^{-1}$ & $7.0500\times 10^{-1}$ & $6.2100\times 10^{-1}$ & $4.8800\times 10^{-1}$ & $8.4400\times 10^{-1}$ & $6.6600\times 10^-{01}$ & $7.2700\times 10^{-1}$ \\
+%   512	& $4.8150\times 10^{0}$  & $2.3750\times 10^{0}$  & $2.3780\times 10^{0}$  & $1.6690\times 10^{0}$  & $1.8000\times 10^{0}$  & $2.3150\times 10^{0}$   & $2.7880\times 10^{0}$ \\
+%   1024 	& $2.4807\times 10^{1}$  & $8.7550\times 10^{0}$  & $7.4380\times 10^{0}$  & $5.9310\times 10^{0}$  & $6.3070\times 10^{0}$  & $9.5170\times 10^{0}$   & $7.5420\times 10^{0}$ \\
+%   2048 	& $1.3589\times 10^{2}$  & $3.5944\times 10^{1}$  & $3.8697\times 10^{1}$  & $3.0029\times 10^{1}$  & $4.0392\times 10^{1}$  & $3.3908\times 10^{1}$   & $2.4795\times 10^{1}$ \\
+%   4096 	& $7.1511\times 10^{2}$  & $1.7275\times 10^{2}$  & $1.6319\times 10^{2}$  & $1.3432\times 10^{2}$  & $1.6092\times 10^{2}$  & $1.6682\times 10^{2}$   & $1.3212\times 10^{2}$ \\
+%   8192 	& $3.0509\times 10^{3}$  & $7.6561\times 10^{2}$  & $7.5487\times 10^{2}$  & $6.5091\times 10^{2}$  & $7.6296\times 10^{2}$  & $7.5997\times 10^{2}$   & $5.5517\times 10^{2}$ \\
+%   16384 & $1.2585\times 10^{4}$  & $3.3533\times 10^{3}$  & $3.2589\times 10^{3}$  & $2.6138\times 10^{3}$  & $3.2283\times 10^{3}$  & $3.2886\times 10^{3}$   & $2.2703\times 10^{3}$ \\
+%   32768 & $9.0450\times 10^{4}$  & $1.8300\times 10^{4}$  & $1.8769\times 10^{4}$  & $1.2127\times 10^{4}$  & $1.7252\times 10^{4}$  & $1.7936\times 10^{4}$   & $1.1369\times 10^{4}$ \\ \bottomrule
+    \end{tabular} \hfill}
+\end{table}
+
+\vspace{50pt}
+
+\begin{figure}[h] \centering
+    {\hspace{-30pt}%
+    \includegraphics[width=0.95\linewidth]{images/asymptotic.eps}}
+    \caption{Computational time vs array size (log plot)}
+    \label{fig:big_o} 
+    % \vspace{-10pt}
+\end{figure}
+
+\newpage
+\section{} \label{app:II}
+
+{{\fontfamily{fi4}\selectfont ...} % Use Inconsulata font
+\captionof{lstlisting}{Matrix.h}
+\rule{0.975\textwidth}{.6pt}
+\lstinputlisting[language=C++]{code/Matrix.h}\label{code:matrix}
+
+\newpage
+
+\captionof{lstlisting}{lab2.cpp}
+\rule{0.975\textwidth}{.6pt}
+\lstinputlisting[language=C++]{code/lab2.cpp}\label{code:lab2}
+\rule{0.975\textwidth}{.4pt}
+
+\vspace{15pt}
+
+\captionof{lstlisting}{transpose.cpp}
+\rule{0.975\textwidth}{.6pt}
+\lstinputlisting[language=C++]{code/transpose.cpp}\label{code:transpose}
+
+\newpage
+\vspace{-50pt}
+\captionof{lstlisting}{utilities.cpp}
+\rule{0.975\textwidth}{.6pt}
+\lstinputlisting[language=C++]{code/utilities.cpp}\label{code:utility}
+}
+
+\end{appendices}
