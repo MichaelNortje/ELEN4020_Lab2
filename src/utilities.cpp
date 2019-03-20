@@ -21,7 +21,7 @@ void print2d(Matrix A){
 
 void writeMatrixToFile(string fileName, Matrix A)
 {
-    ofstream outputFile(fileName, ios::out);
+    ofstream outputFile(fileName, ios::out | ios::trunc);
     if (!outputFile.is_open()){
         cout << "Unable to open file:" << fileName << endl;
     }
